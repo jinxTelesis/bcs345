@@ -5,7 +5,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 
-/**
+/** author  David J. Eck
  * This panel implements a simple arcade game in which the user tries to blow
  * up a "submarine" (a black oval) by dropping "depth charges" (a red disk) from 
  * a "boat" (a blue roundrect).  The user moves the boat with the left- and 
