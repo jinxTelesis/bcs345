@@ -10,6 +10,8 @@ public class Student implements Comparable<Student>{
 	public final static int MAX_NUM_COURSES = 7;
 	private String[] coursesTaken = new String[7];
 	
+	
+	
 	Student() {
 		this.firstName = "";
 		this.lastName = "";
@@ -25,13 +27,41 @@ public class Student implements Comparable<Student>{
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.matriculantStatus = matriculantStatus;
-		
+		this.coursesTaken = coursesTaken;
 		
 	}
 	
+	public String getFirstName()
+	{
+		return this.firstName;
+	}
 	
+	public String toString() {
+		String s = null;// not the best way to do it performance wise
+		s+= "The student's first name is: " + this.firstName + " ";
+		s+= "The student's last name is : " + this.lastName + " ";
+		s+= "The student's id is : " + this.sID + " ";
+		s+= "The student's matriculant status is : " + this.matriculantStatus + " ";
+		for (int i = 0; i < coursesTaken.length;i++)
+		{
+			s+= "The student is enrolled in : " + coursesTaken[i] + " ";
+		}
+		
+		return s;
+	}
 	
-	
+	public boolean equals(Object o)
+	{
+		if(o instanceof Student)
+		{
+			Student otherS = (Student)o; // cast
+			if (this.sID == otherS.sID)// allows name changes, which mirror reality
+			{//student equivlency only based on id
+				return true; 
+			}
+		}
+		return false;
+	}
 	
 	
 	@Override
