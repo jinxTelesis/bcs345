@@ -9,48 +9,40 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class GuiJPanel extends JPanel implements ActionListener{
-	public static final String ADD = "Add";
-	public static final String SUB = "Sub";
-	public static final String MULT = "Mult";
-	public static final String DIV = "Div";
+	public static final String Person = "Person";
+	public static final String Employee = "Employee";
+	public static final String Faculty = "Faculty";
+	public static final String Undergraduate = "UnderGraduate";
+	public static final String Graduate = "Graduate";
 	private static final int NUM_COLUMNS = 10;
-	private JLabel jlDisplay0;
-	private JLabel jlDisplay1;
-	private JLabel jlDisplayResult;
-	private JPanel jpTF, jpBtn;
-	private JTextField jtf1, jtf2;
-	private JButton jbAdd, jbSub, jbMult, jbDiv;
 	
 	public GuiJPanel() {
-		jlDisplay0 = new JLabel("Value one");
-		jlDisplayResult = new JLabel("Result Display");
+		JLabel jlone = new JLabel("");
+		JLabel jltwo = new JLabel("Select a type of member to alter");
+		JLabel jlthree = new JLabel("");
+		add(jlone);
+		add(jltwo);
+		add(jlthree);
+		JButton jbPer = new JButton(Person);
+		JButton jbEmp = new JButton(Employee);
+		JButton jbFac = new JButton(Faculty);
+		JButton jbUnd = new JButton(Undergraduate);
+		JButton jbGra = new JButton(Graduate);
+		add(jbPer);
+		add(jbEmp);
+		add(jbFac);
+		add(jbUnd);
+		add(jbGra);
 		
 		
-		jtf1 = new JTextField(null, NUM_COLUMNS);
-		jtf2 = new JTextField(null, NUM_COLUMNS);
-		
-		jlDisplay1 = new JLabel("Value two");
-		jbAdd = new JButton(ADD);
-		jbSub = new JButton(SUB);
-		jbMult = new JButton(MULT);
-		jbDiv = new JButton(DIV);
 		
 		
-		jbAdd.addActionListener(this);
-		jbSub.addActionListener(this);
-		jbMult.addActionListener(this);
-		jbDiv.addActionListener(this);
 		
-		
-		add(jlDisplay0);
-		add(jtf1);
-		add(jlDisplay1);
-		add(jtf2);
-		add(jbAdd);
-		add(jbSub);
-		add(jbMult);
-		add(jbDiv);
-		add(jlDisplayResult);
+		//jbAdd.addActionListener(this);
+		//jbSub.addActionListener(this);
+		//jbMult.addActionListener(this);
+		//jbDiv.addActionListener(this);
+
 		
 		
 	}

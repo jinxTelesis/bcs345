@@ -12,6 +12,8 @@ public class GuiJFrame extends JFrame{
 		//FlowLayout layout = new FlowLayout();
 		GridLayout layout = new GridLayout(0,3);
         jp.setLayout(layout);
+        setResizable(false);
+       
 	}
 
 }
