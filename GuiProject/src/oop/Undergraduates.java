@@ -8,7 +8,9 @@ public class Undergraduates extends Student {
 	
 	Undergraduates(String firstName, String lastName, String[] coursesTaken)
 	{
-		
+		super(firstName,lastName,'U',coursesTaken);
 	}
+	
+	
 
 }
