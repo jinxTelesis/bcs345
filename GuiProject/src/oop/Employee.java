@@ -1,6 +1,6 @@
 package oop;
 
-public class Employee {
+public class Employee implements Comparable<Employee> {
 	private String firstName;
 	private String lastName;
 	private String deptName;
@@ -80,6 +80,22 @@ public class Employee {
 			}
 		}
 		return false;
+	}
+
+	
+	public int compareTo(Employee o) {
+		if(this.eID > o.eID)
+		{
+			return 1;
+		}
+		else if (this.eID == o.eID)
+		{
+			return 0;
+		}
+		else
+		{
+			return -1;
+		}
 	}
 	
 	
