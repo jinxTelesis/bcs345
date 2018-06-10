@@ -14,24 +14,31 @@ public class GuiJPanel extends JPanel implements ActionListener{
 	public static final String Faculty = "Faculty";
 	public static final String Undergraduate = "UnderGraduate";
 	public static final String Graduate = "Graduate";
+	public static final String Create = "Create";
+	public static final String Remove = "Remove";
+	public static final String Update = "Update";
+	public static final String Display = "Display";
+	private JLabel jlone, jltwo, jlthree,jlfour,jlfive;
+	private JButton jbPer,jbEmp,jbFac,jbUnd,jbGra;
 	private static final int NUM_COLUMNS = 10;
 	
 	public GuiJPanel() {
-		JLabel jlone = new JLabel("");
-		JLabel jltwo = new JLabel("");
-		JLabel jlthree = new JLabel("Select a type of member to alter");
-		JLabel jlfour = new JLabel("");
-		JLabel jlfive = new JLabel("");
+		jlone = new JLabel("");
+		jltwo = new JLabel("");
+		jlthree = new JLabel("Select a type of member to alter");
+		jlfour = new JLabel("");
+		jlfive = new JLabel("");
+		// add highlight for the data type
 		add(jlone);
 		add(jltwo);
 		add(jlthree);
 		add(jlfour);
 		add(jlfive);
-		JButton jbPer = new JButton(Person);
-		JButton jbEmp = new JButton(Employee);
-		JButton jbFac = new JButton(Faculty);
-		JButton jbUnd = new JButton(Undergraduate);
-		JButton jbGra = new JButton(Graduate);
+		jbPer = new JButton(Person);
+		jbEmp = new JButton(Employee);
+		jbFac = new JButton(Faculty);
+		jbUnd = new JButton(Undergraduate);
+		jbGra = new JButton(Graduate);
 		add(jbPer);
 		add(jbEmp);
 		add(jbFac);
