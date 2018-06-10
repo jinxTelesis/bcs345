@@ -11,7 +11,6 @@ public class Student implements Comparable<Student>{
 	private String[] coursesTaken = new String[7];
 	
 	
-	
 	Student() {
 		this.firstName = "";
 		this.lastName = "";
@@ -31,9 +30,40 @@ public class Student implements Comparable<Student>{
 		
 	}
 	
-	public String getFirstName()
-	{
-		return this.firstName;
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public char getMatriculantStatus() {
+		return matriculantStatus;
+	}
+
+	public void setMatriculantStatus(char matriculantStatus) {
+		this.matriculantStatus = matriculantStatus;
+	}
+
+	public String[] getCoursesTaken() {
+		return coursesTaken;
+	}
+
+	public void setCoursesTaken(String[] coursesTaken) {
+		this.coursesTaken = coursesTaken;
+	}
+
+	public int getsID() {
+		return sID;
 	}
 	
 	public String toString() {
