@@ -5,7 +5,7 @@ public class Student implements Comparable<Student>{
 	private String firstName;
 	private String lastName;
 	private static int ID;
-	private int sID;
+	protected int sID;
 	private char matriculantStatus;
 	public final static int MAX_NUM_COURSES = 7;
 	private String[] coursesTaken = new String[7];

@@ -25,6 +25,19 @@ public class Undergraduates extends Student {
 		
 	}
 	
+	public boolean equals(Object o)
+	{
+		if(o instanceof Undergraduates)
+		{
+			Undergraduates otherS = (Undergraduates)o; // cast
+			if (super.sID == otherS.sID)// allows name changes, which mirror reality
+			{//student equivlency only based on id
+				return true; 
+			}
+		}
+		return false;
+	}
+	
 	
 
 }
