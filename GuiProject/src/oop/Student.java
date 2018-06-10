@@ -61,6 +61,11 @@ public class Student implements Comparable<Student>{
 	public void setCoursesTaken(String[] coursesTaken) {
 		this.coursesTaken = coursesTaken;
 	}
+	
+	public void setCoursesTakenSingle(String coursesTaken, int pos)
+	{
+		this.coursesTaken[pos] = coursesTaken;
+	}
 
 	public int getsID() {
 		return sID;
