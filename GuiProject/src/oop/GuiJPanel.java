@@ -18,11 +18,15 @@ public class GuiJPanel extends JPanel implements ActionListener{
 	
 	public GuiJPanel() {
 		JLabel jlone = new JLabel("");
-		JLabel jltwo = new JLabel("Select a type of member to alter");
-		JLabel jlthree = new JLabel("");
+		JLabel jltwo = new JLabel("");
+		JLabel jlthree = new JLabel("Select a type of member to alter");
+		JLabel jlfour = new JLabel("");
+		JLabel jlfive = new JLabel("");
 		add(jlone);
 		add(jltwo);
 		add(jlthree);
+		add(jlfour);
+		add(jlfive);
 		JButton jbPer = new JButton(Person);
 		JButton jbEmp = new JButton(Employee);
 		JButton jbFac = new JButton(Faculty);
