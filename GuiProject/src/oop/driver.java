@@ -13,7 +13,7 @@ public class driver {
 		public void run() {
 		GuiJFrame gui = new GuiJFrame();
 		gui.setVisible(true);
-		gui.setSize(215, 500);
+		gui.setSize(500, 500);
 		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		}
 		});
