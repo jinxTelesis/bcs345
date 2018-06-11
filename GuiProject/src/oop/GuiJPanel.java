@@ -234,7 +234,7 @@ public class GuiJPanel extends JPanel implements ActionListener{
 					{
 						testStr = "Person";
 						System.out.println(testStr + " update worked " + objState);
-						System.out.println("Person update worked " + alterState);
+						System.out.println(testStr + "Person update worked " + alterState);
 						
 						// need an incrementor for id?
 						p1[personArrCount] = new Person();
@@ -245,8 +245,9 @@ public class GuiJPanel extends JPanel implements ActionListener{
 					
 					if(alterState.equalsIgnoreCase(" Removing ") && personArrCount > 0)
 					{
-						System.out.println("Person update worked " + objState);
-						System.out.println("Person update worked " + alterState);
+						testStr = "Person";
+						System.out.println(testStr + " update worked " + objState);
+						System.out.println(testStr + " update worked " + alterState);
 						
 						// need an incrementor for id?
 						p1[personArrCount-1].setFirstName(" ");
@@ -256,8 +257,9 @@ public class GuiJPanel extends JPanel implements ActionListener{
 					
 					if(alterState.equalsIgnoreCase(" Updating ") && personArrCount > 0)
 					{
-						System.out.println("Person update worked " + objState);
-						System.out.println("Person update worked " + alterState);
+						testStr = "Person";
+						System.out.println(testStr + " update worked " + objState);
+						System.out.println(testStr + " update worked " + alterState);
 						
 						// need an incrementor for id?
 						p1[personArrCount-1].setFirstName("Jim");
@@ -266,63 +268,114 @@ public class GuiJPanel extends JPanel implements ActionListener{
 					
 					if(alterState.equals(" Displaying ") && personArrCount > 0)
 					{
-						System.out.println("Person update worked " + objState);
-						System.out.println("Person update worked " + alterState);
-						jlTADisData = " Person's name is: " + p1[personArrCount-1].getFirstName() +" \n ";
-						jlTADisData += " Person's last name is: " + p1[personArrCount-1].getLastName() + " \n ";
+						testStr = "Person";
+						System.out.println(testStr + " update worked " + objState);
+						System.out.println(testStr + " update worked " + alterState);
+						jlTADisData = testStr + " 's name is: " + p1[personArrCount-1].getFirstName() +" \n ";
+						jlTADisData += testStr + " 's last name is: " + p1[personArrCount-1].getLastName() + " \n ";
 						jTADisData.setText(jlTADisData);
 					}
-					System.out.println("Person update worked " + objState);
-					System.out.println("Person update worked " + alterState);
 					break;
 				
-				case Employee:
+				//
+				//	
+				// not done not done not done not done not done not done not done not done 	
+				//	
+				//	
+				case Employee: 
 					if(alterState.equalsIgnoreCase(" Creating ") && employeeArrCount < 20) // worked needs output message for past 10
 					{
-						System.out.println("Person update worked " + objState);
-						System.out.println("Person update worked " + alterState);
+						testStr = "Employee";
+						System.out.println(testStr + " update worked " + objState);
+						System.out.println(testStr + " update worked " + alterState);
 						
 						// need an incrementor for id?
-						p1[employeeArrCount] = new Person();
-						p1[employeeArrCount].setFirstName("Tom");
-						p1[employeeArrCount].setLastName("Brandy");
+						e1[employeeArrCount] = new Employee();// 
+						e1[employeeArrCount].setFirstName("Tom");
+						e1[employeeArrCount].setLastName("Brandy");
 						employeeArrCount++;
 					}
 					
 					if(alterState.equalsIgnoreCase(" Removing ") && employeeArrCount > 0)
 					{
-						System.out.println("Person update worked " + objState);
-						System.out.println("Person update worked " + alterState);
+						testStr = "Employee";
+						System.out.println(testStr + " update worked " + objState);
+						System.out.println(testStr + " update worked " + alterState);
 						
 						// need an incrementor for id?
-						p1[employeeArrCount-1].setFirstName(" ");
-						p1[employeeArrCount-1].setLastName(" ");
+						e1[employeeArrCount-1].setFirstName(" ");
+						e1[employeeArrCount-1].setLastName(" ");
 						employeeArrCount--;
 					}
 					
 					if(alterState.equalsIgnoreCase(" Updating ") && employeeArrCount > 0)
 					{
-						System.out.println("Person update worked " + objState);
-						System.out.println("Person update worked " + alterState);
+						testStr = "Employee";
+						System.out.println(testStr + " update worked " + objState);
+						System.out.println(testStr + " update worked " + alterState);
 						
 						// need an incrementor for id?
-						p1[employeeArrCount-1].setFirstName("Jim");
-						p1[employeeArrCount-1].setLastName("Candy");
+						e1[employeeArrCount-1].setFirstName("Jim");
+						e1[employeeArrCount-1].setLastName("Candy");
 					}
 					
 					if(alterState.equals(" Displaying ") && employeeArrCount> 0)
 					{
-						System.out.println("Person update worked " + objState);
-						System.out.println("Person update worked " + alterState);
-						jlTADisData = " Person's name is: " + p1[employeeArrCount-1].getFirstName() +" \n ";
-						jlTADisData += " Person's last name is: " + p1[employeeArrCount-1].getLastName() + " \n ";
+						testStr = "Employee";
+						System.out.println(testStr + " update worked " + objState);
+						System.out.println(testStr + " update worked " + alterState);
+						jlTADisData = testStr + " 's name is: " + p1[employeeArrCount-1].getFirstName() +" \n ";
+						jlTADisData += testStr + " 's last name is: " + p1[employeeArrCount-1].getLastName() + " \n ";
 						jTADisData.setText(jlTADisData);
 					}
-					System.out.println("Person update worked " + objState);
-					System.out.println("Person update worked " + alterState);
 					break;
 					
 				case Faculty:
+					if(alterState.equalsIgnoreCase(" Creating ") && facultyArrCount < 20) // worked needs output message for past 10
+					{
+						testStr = "Faculty";
+						System.out.println(testStr + " update worked " + objState);
+						System.out.println(testStr + " update worked " + alterState);
+						
+						// need an incrementor for id?
+						e1[facultyArrCount] = new Employee();// 
+						e1[facultyArrCount].setFirstName("Tom");
+						e1[facultyArrCount].setLastName("Brandy");
+						facultyArrCount++;
+					}
+					
+					if(alterState.equalsIgnoreCase(" Removing ") && facultyArrCount > 0)
+					{
+						testStr = "Faculty";
+						System.out.println(testStr + " update worked " + objState);
+						System.out.println(testStr + " update worked " + alterState);
+						
+						// need an incrementor for id?
+						e1[facultyArrCount-1].setFirstName(" ");
+						e1[facultyArrCount-1].setLastName(" ");
+						facultyArrCount--;
+					}
+					
+					if(alterState.equalsIgnoreCase(" Updating ") && facultyArrCount > 0)
+					{
+						testStr = "Faculty";
+						System.out.println(testStr + " update worked " + objState);
+						System.out.println(testStr + " update worked " + alterState);
+						
+						// need an incrementor for id?
+						e1[facultyArrCount-1].setFirstName("Jim");
+						e1[facultyArrCount-1].setLastName("Candy");
+					}
+					
+					if(alterState.equals(" Displaying ") && facultyArrCount> 0)
+					{
+						testStr = "Faculty";
+						System.out.println(testStr + " update worked " + objState);
+						System.out.println(testStr + " update worked " + alterState);
+						jlTADisData = testStr + " 's name is: " + p1[facultyArrCount-1].getFirstName() +" \n ";
+						jlTADisData += testStr + " 's last name is: " + p1[facultyArrCount-1].getLastName() + " \n ";
+						jTADisData.setText(jlTADisData);
+					}
 					break;
 					
 				case Staff:
