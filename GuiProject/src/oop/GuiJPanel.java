@@ -92,30 +92,42 @@ public class GuiJPanel extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		
 		String cmd = e.getActionCommand();
+		String objState = new String();
+		String alterState = new String();
 		
 		switch(cmd) {
 		case Person:
-			
-			System.out.println(" Person selected ");
+			objState = "Person";
+			jTAtypeDisplay.setText(objState + " type currently selected "); 
+			System.out.println( objState + " selected ");
 			break;
 			
 		case Employee:
-			System.out.println(" Employee selected ");
+			objState = "Employee";
+			jTAtypeDisplay.setText(objState + " type currently selected ");
+			System.out.println( objState + " selected ");
 			break;
 			
 		case Faculty:
-			System.out.println(" Faculty selected ");
+			objState = "Faculty";
+			jTAtypeDisplay.setText(objState + " type currently selected ");
+			System.out.println( objState + " selected ");
 			break;
 			
 		case Undergraduate:
-			System.out.println(" Undergraduate selected ");
+			objState = "Undergraduate";
+			jTAtypeDisplay.setText(objState + " type currently selected ");
+			System.out.println( objState + " selected ");
 			break;
 			
 		case Graduate:
-			System.out.println(" Graduate selected ");
+			objState = "Graduate";
+			jTAtypeDisplay.setText(objState + " type currently selected ");
+			System.out.println( objState + " selected ");
 			break;
 			
 		case Create:
+			alterState = " Creating ";
 			System.out.println(" Creating an object ");
 			break;
 			
