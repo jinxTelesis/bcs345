@@ -13,6 +13,11 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.EtchedBorder;
 
+// ask about the threading optimization
+// stuff didn't work as expected with third level switch statements
+// grading criteria? any filtering of user input // try exceptions
+// aesthetics
+
 import java.util.Scanner;
 
 public class GuiJPanel extends JPanel implements ActionListener{
@@ -29,6 +34,7 @@ public class GuiJPanel extends JPanel implements ActionListener{
 	public static final String Person = "Person";
 	public static final String Employee = "Employee";
 	public static final String Faculty = "Faculty";
+	public static final String Staff = "Staff";
 	public static final String Undergraduate = "UnderGraduate";
 	public static final String Graduate = "Graduate";
 	public static final String Create = "Create";
@@ -37,7 +43,7 @@ public class GuiJPanel extends JPanel implements ActionListener{
 	public static final String Display = "Display";
 	public static final String Enter = "Enter";
 	private JLabel jlOne, jlTwo, jlThree,jlFour,jlFive, jlSelect;
-	private JButton jbPer,jbEmp,jbFac,jbUnd,jbGra;
+	private JButton jbPer,jbEmp,jbFac,jbSta,jbUnd,jbGra;
 	private JButton jbCreate, jbRemove, jbUpdate, jbDisplay;
 	private JButton jbEnter;
 	private static final int NUM_COLUMNS = 10;
@@ -113,13 +119,16 @@ public class GuiJPanel extends JPanel implements ActionListener{
 		jbPer = new JButton(Person);
 		jbEmp = new JButton(Employee);
 		jbFac = new JButton(Faculty);
+		jbSta = new JButton(Staff);
 		jbUnd = new JButton(Undergraduate);
 		jbGra = new JButton(Graduate);
 		add(jbPer);
 		add(jbEmp);
 		add(jbFac);
+		add(jbSta);
 		add(jbUnd);
 		add(jbGra);
+		
 		
 		jbCreate = new JButton(Create);
 		jbRemove = new JButton(Remove);
@@ -139,6 +148,7 @@ public class GuiJPanel extends JPanel implements ActionListener{
 		jbPer.addActionListener(this);
 		jbEmp.addActionListener(this);
 		jbFac.addActionListener(this);
+		jbSta.addActionListener(this);
 		jbUnd.addActionListener(this);
 		jbGra.addActionListener(this);
 		jbCreate.addActionListener(this);
@@ -150,7 +160,7 @@ public class GuiJPanel extends JPanel implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+		String testStr = new String();
 		String cmd = e.getActionCommand();
 		//String objState = new String(); // need a static?
 		//String alterState = new String();
@@ -170,6 +180,12 @@ public class GuiJPanel extends JPanel implements ActionListener{
 			
 		case Faculty:
 			objState = "Faculty";
+			jTAtypeDisplay.setText(objState + " type currently selected ");
+			System.out.println( objState + " selected ");
+			break;
+			// need to add constant first
+		case Staff:
+			objState = "Staff";
 			jTAtypeDisplay.setText(objState + " type currently selected ");
 			System.out.println( objState + " selected ");
 			break;
@@ -205,6 +221,7 @@ public class GuiJPanel extends JPanel implements ActionListener{
 			alterState = " Displaying ";
 			System.out.println(alterState + " an object" );
 			break;
+			
 		case Enter:
 			System.out.print("Entering ");
 			System.out.println(alterState);
@@ -213,9 +230,10 @@ public class GuiJPanel extends JPanel implements ActionListener{
 			switch(objState) // add text field or set up text field for display
 			{
 				case Person:
-					if(alterState.equalsIgnoreCase(" Creating ") && personArrCount < 10) // worked needs output message for past 10
+					if(alterState.equalsIgnoreCase(" Creating ") && personArrCount < 20) // worked needs output message for past 10
 					{
-						System.out.println("Person update worked " + objState);
+						testStr = "Person";
+						System.out.println(testStr + " update worked " + objState);
 						System.out.println("Person update worked " + alterState);
 						
 						// need an incrementor for id?
@@ -231,22 +249,22 @@ public class GuiJPanel extends JPanel implements ActionListener{
 						System.out.println("Person update worked " + alterState);
 						
 						// need an incrementor for id?
-						p1[personArrCount].setFirstName("");
-						p1[personArrCount].setLastName("");
+						p1[personArrCount-1].setFirstName(" ");
+						p1[personArrCount-1].setLastName(" ");
 						personArrCount--;
 					}
 					
-					if(alterState.equalsIgnoreCase(" Updating ") && personArrCount > -1)
+					if(alterState.equalsIgnoreCase(" Updating ") && personArrCount > 0)
 					{
 						System.out.println("Person update worked " + objState);
 						System.out.println("Person update worked " + alterState);
 						
 						// need an incrementor for id?
-						p1[personArrCount].setFirstName("Jim");
-						p1[personArrCount].setLastName("Candy");
+						p1[personArrCount-1].setFirstName("Jim");
+						p1[personArrCount-1].setLastName("Candy");
 					}
 					
-					if(alterState.equals(" Displaying ") && personArrCount > -1)
+					if(alterState.equals(" Displaying ") && personArrCount > 0)
 					{
 						System.out.println("Person update worked " + objState);
 						System.out.println("Person update worked " + alterState);
@@ -259,9 +277,55 @@ public class GuiJPanel extends JPanel implements ActionListener{
 					break;
 				
 				case Employee:
+					if(alterState.equalsIgnoreCase(" Creating ") && employeeArrCount < 20) // worked needs output message for past 10
+					{
+						System.out.println("Person update worked " + objState);
+						System.out.println("Person update worked " + alterState);
+						
+						// need an incrementor for id?
+						p1[employeeArrCount] = new Person();
+						p1[employeeArrCount].setFirstName("Tom");
+						p1[employeeArrCount].setLastName("Brandy");
+						employeeArrCount++;
+					}
+					
+					if(alterState.equalsIgnoreCase(" Removing ") && employeeArrCount > 0)
+					{
+						System.out.println("Person update worked " + objState);
+						System.out.println("Person update worked " + alterState);
+						
+						// need an incrementor for id?
+						p1[employeeArrCount-1].setFirstName(" ");
+						p1[employeeArrCount-1].setLastName(" ");
+						employeeArrCount--;
+					}
+					
+					if(alterState.equalsIgnoreCase(" Updating ") && employeeArrCount > 0)
+					{
+						System.out.println("Person update worked " + objState);
+						System.out.println("Person update worked " + alterState);
+						
+						// need an incrementor for id?
+						p1[employeeArrCount-1].setFirstName("Jim");
+						p1[employeeArrCount-1].setLastName("Candy");
+					}
+					
+					if(alterState.equals(" Displaying ") && employeeArrCount> 0)
+					{
+						System.out.println("Person update worked " + objState);
+						System.out.println("Person update worked " + alterState);
+						jlTADisData = " Person's name is: " + p1[employeeArrCount-1].getFirstName() +" \n ";
+						jlTADisData += " Person's last name is: " + p1[employeeArrCount-1].getLastName() + " \n ";
+						jTADisData.setText(jlTADisData);
+					}
+					System.out.println("Person update worked " + objState);
+					System.out.println("Person update worked " + alterState);
 					break;
 					
 				case Faculty:
+					break;
+					
+				case Staff:
 					break;
 				
 				case Undergraduate:
@@ -271,8 +335,7 @@ public class GuiJPanel extends JPanel implements ActionListener{
 					break;
 			
 			}
-			
-			
+		// remove this??	
 			break;
 		
 		default:
