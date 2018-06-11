@@ -27,9 +27,9 @@ public class Graduate extends Student{
 	
 	public boolean equals(Object o)
 	{
-		if(o instanceof Undergraduates)
+		if(o instanceof Undergraduate)
 		{
-			Undergraduates otherS = (Undergraduates)o; // cast
+			Undergraduate otherS = (Undergraduate)o; // cast
 			if (super.sID == otherS.sID)// allows name changes, which mirror reality
 			{//student equivlency only based on id
 				return true; 

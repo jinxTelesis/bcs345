@@ -1,12 +1,12 @@
 package oop;
 
-public class Undergraduates extends Student {
+public class Undergraduate extends Student {
 	
-	Undergraduates(){
+	Undergraduate(){
 		super();// need courses only to be U // and status 
 	}
 	
-	Undergraduates(String firstName, String lastName, String[] coursesTaken)
+	Undergraduate(String firstName, String lastName, String[] coursesTaken)
 	{
 		super(firstName,lastName,'U',coursesTaken);
 		for (int i = 0; i < coursesTaken.length;i++)
@@ -27,9 +27,9 @@ public class Undergraduates extends Student {
 	
 	public boolean equals(Object o)
 	{
-		if(o instanceof Undergraduates)
+		if(o instanceof Undergraduate)
 		{
-			Undergraduates otherS = (Undergraduates)o; // cast
+			Undergraduate otherS = (Undergraduate)o; // cast
 			if (super.sID == otherS.sID)// allows name changes, which mirror reality
 			{//student equivlency only based on id
 				return true; 

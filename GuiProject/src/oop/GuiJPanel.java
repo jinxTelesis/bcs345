@@ -41,7 +41,7 @@ public class GuiJPanel extends JPanel implements ActionListener{
 	private Employee e1[] = new Employee[20];
 	private Faculty f1[] = new Faculty[20];
 	private Student s1[] = new Student[20];
-	private Undergraduates u1[] = new Undergraduates[20];
+	private Undergraduate u1[] = new Undergraduate[20];
 	private Graduate g1[] = new Graduate[20];
 	
 	
