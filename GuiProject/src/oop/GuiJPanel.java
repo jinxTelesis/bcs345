@@ -24,6 +24,9 @@ public class GuiJPanel extends JPanel implements ActionListener{
 	
 	//Object[] objectarr = new Object[1000];
 	
+	// just use a whiles than equals to remove items
+	// dont need different types. 
+	
 	// got this from java documentation 
 	Border blackline, raisedetched, loweredetched,
     raisedbevel, loweredbevel, empty;
@@ -66,7 +69,7 @@ public class GuiJPanel extends JPanel implements ActionListener{
 	private static int facultyArrCount = 0;
 	private static int studentArrCount = 0;
 	private static int underArrCount = 0;
-	private static int fsdsdf =0;
+	private static int staffArrCount =0;
 	
 	//
 	private String objState = new String();
@@ -379,6 +382,51 @@ public class GuiJPanel extends JPanel implements ActionListener{
 					break;
 					
 				case Staff:
+					if(alterState.equalsIgnoreCase(" Creating ") && staffArrCount < 20) // worked needs output message for past 10
+					{
+						testStr = "Staff";
+						System.out.println(testStr + " update worked " + objState);
+						System.out.println(testStr + " update worked " + alterState);
+						
+						// need an incrementor for id?
+						e1[staffArrCount] = new Employee();// 
+						e1[staffArrCount].setFirstName("Tom");
+						e1[staffArrCount].setLastName("Brandy");
+						staffArrCount++;
+					}
+					
+					if(alterState.equalsIgnoreCase(" Removing ") && staffArrCount > 0)
+					{
+						testStr = "Staff";
+						System.out.println(testStr + " update worked " + objState);
+						System.out.println(testStr + " update worked " + alterState);
+						
+						// need an incrementor for id?
+						e1[staffArrCount-1].setFirstName(" ");
+						e1[staffArrCount-1].setLastName(" ");
+						staffArrCount--;
+					}
+					
+					if(alterState.equalsIgnoreCase(" Updating ") && staffArrCount > 0)
+					{
+						testStr = "Staff";
+						System.out.println(testStr + " update worked " + objState);
+						System.out.println(testStr + " update worked " + alterState);
+						
+						// need an incrementor for id?
+						e1[staffArrCount-1].setFirstName("Jim");
+						e1[staffArrCount-1].setLastName("Candy");
+					}
+					
+					if(alterState.equals(" Displaying ") && staffArrCount> 0)
+					{
+						testStr = "Staff";
+						System.out.println(testStr + " update worked " + objState);
+						System.out.println(testStr + " update worked " + alterState);
+						jlTADisData = testStr + " 's name is: " + p1[staffArrCount-1].getFirstName() +" \n ";
+						jlTADisData += testStr + " 's last name is: " + p1[staffArrCount-1].getLastName() + " \n ";
+						jTADisData.setText(jlTADisData);
+					}
 					break;
 				
 				case Undergraduate:
