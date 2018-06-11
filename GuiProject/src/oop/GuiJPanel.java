@@ -23,7 +23,7 @@ public class GuiJPanel extends JPanel implements ActionListener{
 	private JButton jbPer,jbEmp,jbFac,jbUnd,jbGra;
 	private JButton jbCreate, jbRemove, jbUpdate, jbDisplay;
 	private static final int NUM_COLUMNS = 10;
-	private String typeDisplay = "Type currently \n selected is";
+	private String typeDisplay = "\n\n\n\n\n     Type currently \n        selected is";
 	private JTextArea jTAtypeDisplay;
 	
 	public GuiJPanel() {
@@ -32,7 +32,7 @@ public class GuiJPanel extends JPanel implements ActionListener{
 		jlThree = new JLabel("Select a type of member to alter");
 		jlFour = new JLabel("");
 		jlFive = new JLabel("");
-		jTAtypeDisplay = new JTextArea(typeDisplay);
+		jTAtypeDisplay = new JTextArea(typeDisplay, 10, 10);
 		jTAtypeDisplay.setLineWrap(true);
 		jTAtypeDisplay.setWrapStyleWord(true);
 		// add highlight for the data type
