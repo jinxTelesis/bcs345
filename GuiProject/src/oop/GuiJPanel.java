@@ -8,10 +8,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import java.util.Scanner;
 
 public class GuiJPanel extends JPanel implements ActionListener{
 	
 	Object[] objectarr = new Object[1000];
+	private static int objArrCount =0;
+	
 	public static final String Person = "Person";
 	public static final String Employee = "Employee";
 	public static final String Faculty = "Faculty";
@@ -31,8 +34,18 @@ public class GuiJPanel extends JPanel implements ActionListener{
 	private String selDisplay = " Person Selected ";
 	private JTextArea jTAtypeDisplay;
 	private JTextArea jTASelectionDisplay;
+	public Scanner scan = new Scanner(System.in);
+	public String UserInput = "";
+	
+	public Person p1[] = new Person[10];
+	
+	
+	//
+	private String objState = new String();
+	private String alterState = new String();
 	
 	public GuiJPanel() {
+		
 		jlOne = new JLabel("");
 		jlTwo = new JLabel("");
 		jlThree = new JLabel("Select a type of member to alter");
@@ -92,8 +105,8 @@ public class GuiJPanel extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		
 		String cmd = e.getActionCommand();
-		String objState = new String();
-		String alterState = new String();
+		//String objState = new String(); // need a static?
+		//String alterState = new String();
 		
 		switch(cmd) {
 		case Person:
@@ -128,22 +141,88 @@ public class GuiJPanel extends JPanel implements ActionListener{
 			
 		case Create:
 			alterState = " Creating ";
-			System.out.println(" Creating an object ");
+			System.out.println(alterState + " an object ");
 			break;
 			
 		case Remove:
-			System.out.println(" Removing an object ");
+			alterState = " Removing ";
+			System.out.println(alterState + " an object ");
 			break;
 			
 		case Update:
-			System.out.println(" Updating an object ");
+			alterState = " Updating ";
+			System.out.println(alterState + " an object ");
 			break;
 			
 		case Display:
-			System.out.println(" Displaying an object" );
+			alterState = " Displaying ";
+			System.out.println(alterState + " an object" );
 			break;
 		case Enter:
-			System.out.println("Changes being displayed");
+			System.out.print("Entering ");
+			System.out.println(alterState);
+			System.out.println(" changes to" + objState);
+			
+			switch(objState) // add text field or set up text field for display
+			{
+				case Person:
+					if(alterState.equalsIgnoreCase(" Creating ") && objArrCount < 10) // worked needs output message for past 10
+					{
+						System.out.println("Person update worked " + objState);
+						System.out.println("Person update worked " + alterState);
+						
+						// need an incrementor for id?
+						p1[objArrCount] = new Person();
+						p1[objArrCount].setFirstName("Tom");
+						p1[objArrCount].setLastName("Brandy");
+						objArrCount++;
+					}
+					
+					if(alterState.equalsIgnoreCase(" Removing ") && objArrCount > 0)
+					{
+						System.out.println("Person update worked " + objState);
+						System.out.println("Person update worked " + alterState);
+						
+						// need an incrementor for id?
+						p1[objArrCount].setFirstName("");
+						p1[objArrCount].setLastName("");
+						objArrCount--;
+					}
+					
+					if(alterState.equalsIgnoreCase(" Updating ") && objArrCount > -1)
+					{
+						System.out.println("Person update worked " + objState);
+						System.out.println("Person update worked " + alterState);
+						
+						// need an incrementor for id?
+						p1[objArrCount].setFirstName("Tom");
+						p1[objArrCount].setLastName("Brady");
+					}
+					
+					if(alterState.equals(" Displaying ") && objArrCount > -1)
+					{
+						System.out.println("Person update worked " + objState);
+						System.out.println("Person update worked " + alterState);
+					}
+					System.out.println("Person update worked " + objState);
+					System.out.println("Person update worked " + alterState);
+					break;
+				
+				case Employee:
+					break;
+					
+				case Faculty:
+					break;
+				
+				case Undergraduate:
+					break;
+					
+				case Graduate:
+					break;
+			
+			}
+			
+			
 			break;
 		
 		default:
