@@ -57,8 +57,7 @@ public class Employee extends Person implements Comparable<Employee> {
 	public String toString()
 	{
 		String s = null;
-		s+= "The employee's first name is: " + this.firstName +
-		"\n The employee's last name is: " + this.lastName +
+		s+= super.toString() +
 		"\n The employee works for the: " + this.deptName + " department " +
 		"\n The employee's id is : " + this.eID;
 		
@@ -70,14 +69,12 @@ public class Employee extends Person implements Comparable<Employee> {
 		if( o instanceof Employee)
 		{
 			Employee otherE = (Employee)o;
-			if(this.firstName == otherE.firstName) {
-				if(this.lastName == otherE.lastName) {
-					if(this.deptName == otherE.deptName)
-					{
-						if(this.eID == otherE.eID)
-							return true;
-					}
-				}
+			if(super.equals(otherE)) {
+				if(this.deptName == otherE.deptName)
+				{
+					if(this.eID == otherE.eID)
+						return true;
+				}					
 			}
 		}
 		return false;
@@ -98,10 +95,5 @@ public class Employee extends Person implements Comparable<Employee> {
 			return -1;
 		}
 	}
-	
-	
-	
-	
-	
-	
+
 }

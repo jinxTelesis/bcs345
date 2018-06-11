@@ -33,5 +33,25 @@ public class Person {
 		this.lastName = lastName;
 	}
 	
+	public String toString() {
+		String s = null;
+		s+= "The employee's first name is: " + this.firstName +
+		"\n The employee's last name is: " + this.lastName;
+		return s;
+	}
+	
+	public boolean equals(Object o)
+	{
+		if( o instanceof Person)
+		{
+			Person otherE = (Person)o;
+			if(this.firstName == otherE.firstName) {
+				if(this.lastName == otherE.lastName) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 	
 }
