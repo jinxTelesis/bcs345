@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class GuiJPanel extends JPanel implements ActionListener{
@@ -18,22 +19,28 @@ public class GuiJPanel extends JPanel implements ActionListener{
 	public static final String Remove = "Remove";
 	public static final String Update = "Update";
 	public static final String Display = "Display";
-	private JLabel jlone, jltwo, jlthree,jlfour,jlfive;
+	private JLabel jlOne, jlTwo, jlThree,jlFour,jlFive, jlSelect;
 	private JButton jbPer,jbEmp,jbFac,jbUnd,jbGra;
+	private JButton jbCreate, jbRemove, jbUpdate, jbDisplay;
 	private static final int NUM_COLUMNS = 10;
+	private String typeDisplay = "Type currently \n selected is";
+	private JTextArea jTAtypeDisplay;
 	
 	public GuiJPanel() {
-		jlone = new JLabel("");
-		jltwo = new JLabel("");
-		jlthree = new JLabel("Select a type of member to alter");
-		jlfour = new JLabel("");
-		jlfive = new JLabel("");
+		jlOne = new JLabel("");
+		jlTwo = new JLabel("");
+		jlThree = new JLabel("Select a type of member to alter");
+		jlFour = new JLabel("");
+		jlFive = new JLabel("");
+		jTAtypeDisplay = new JTextArea(typeDisplay);
+		jTAtypeDisplay.setLineWrap(true);
+		jTAtypeDisplay.setWrapStyleWord(true);
 		// add highlight for the data type
-		add(jlone);
-		add(jltwo);
-		add(jlthree);
-		add(jlfour);
-		add(jlfive);
+		add(jlOne);
+		add(jlTwo);
+		add(jlThree);
+		add(jlFour);
+		add(jlFive);
 		jbPer = new JButton(Person);
 		jbEmp = new JButton(Employee);
 		jbFac = new JButton(Faculty);
@@ -45,8 +52,15 @@ public class GuiJPanel extends JPanel implements ActionListener{
 		add(jbUnd);
 		add(jbGra);
 		
-		
-		
+		jbCreate = new JButton(Create);
+		jbRemove = new JButton(Remove);
+		jbUpdate = new JButton(Update);
+		jbDisplay = new JButton(Display);
+		add(jbCreate);
+		add(jbRemove);
+		add(jTAtypeDisplay);
+		add(jbUpdate);
+		add(jbDisplay);		
 		
 		
 		//jbAdd.addActionListener(this);
