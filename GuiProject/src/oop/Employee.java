@@ -1,8 +1,8 @@
 package oop;
 
 public class Employee extends Person implements Comparable<Employee> {
-	private String firstName;
-	private String lastName;
+	//private String firstName;
+	//private String lastName;
 	private String deptName;
 	private static int ID;
 	private int eID;

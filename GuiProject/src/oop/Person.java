@@ -1,8 +1,8 @@
 package oop;
 
-public class Person {
+public class Person { // compare not implement does not make sense 
+	// IMO in this class 
 	private String firstName;
-
 	private String lastName;
 	
 	Person(){

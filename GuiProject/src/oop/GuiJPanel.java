@@ -21,9 +21,11 @@ public class GuiJPanel extends JPanel implements ActionListener{
 	public static final String Remove = "Remove";
 	public static final String Update = "Update";
 	public static final String Display = "Display";
+	public static final String Enter = "Enter";
 	private JLabel jlOne, jlTwo, jlThree,jlFour,jlFive, jlSelect;
 	private JButton jbPer,jbEmp,jbFac,jbUnd,jbGra;
 	private JButton jbCreate, jbRemove, jbUpdate, jbDisplay;
+	private JButton jbEnter;
 	private static final int NUM_COLUMNS = 10;
 	private String typeDisplay = "\n\n\n\n\n     Type currently \n        selected is";
 	private String selDisplay = " Person Selected ";
@@ -69,6 +71,8 @@ public class GuiJPanel extends JPanel implements ActionListener{
 		add(jTAtypeDisplay);
 		add(jbUpdate);
 		add(jbDisplay);
+		jbEnter = new JButton(Enter);
+		add(jbEnter);
 		
 		add(jTASelectionDisplay);
 		
@@ -81,6 +85,7 @@ public class GuiJPanel extends JPanel implements ActionListener{
 		jbRemove.addActionListener(this);
 		jbUpdate.addActionListener(this);
 		jbDisplay.addActionListener(this);
+		jbEnter.addActionListener(this);
 	}
 
 	@Override
@@ -124,6 +129,9 @@ public class GuiJPanel extends JPanel implements ActionListener{
 			
 		case Display:
 			System.out.println(" Displaying an object" );
+			break;
+		case Enter:
+			System.out.println("Changes being displayed");
 			break;
 		
 		default:
