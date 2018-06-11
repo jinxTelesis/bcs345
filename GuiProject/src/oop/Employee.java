@@ -23,7 +23,7 @@ public class Employee extends Person implements Comparable<Employee> {
 		this.deptName = deptName;
 		this.eID = ID;
 	}
-	
+/*	
 	public void setFirstName(String firstName)
 	{
 		this.firstName = firstName;
@@ -33,12 +33,12 @@ public class Employee extends Person implements Comparable<Employee> {
 	{
 		this.lastName = lastName;
 	}
-	
+	*/
 	public void setDeptName(String deptName)
 	{
 		this.deptName = deptName;
 	}
-	
+/*	
 	public String getFirstName()
 	{
 		return this.firstName;
@@ -48,7 +48,7 @@ public class Employee extends Person implements Comparable<Employee> {
 	{
 		return this.lastName;
 	}
-	
+*/	
 	public String deptName()
 	{
 		return this.deptName;
