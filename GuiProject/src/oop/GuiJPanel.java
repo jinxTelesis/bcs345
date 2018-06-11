@@ -250,11 +250,9 @@ public class GuiJPanel extends JPanel implements ActionListener{
 					{
 						System.out.println("Person update worked " + objState);
 						System.out.println("Person update worked " + alterState);
-						jlTADisData = " worked !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ";
-						//private String jlOneDis = " ";
-						//private String jlTwoDis = " ";
-						//private String jlFourDis = " ";
-						//private String jlFiveDis = " ";
+						jlTADisData = " Person's name is: " + p1[personArrCount-1].getFirstName() +" \n ";
+						jlTADisData += " Person's last name is: " + p1[personArrCount-1].getLastName() + " \n ";
+						jTADisData.setText(jlTADisData);
 					}
 					System.out.println("Person update worked " + objState);
 					System.out.println("Person update worked " + alterState);
