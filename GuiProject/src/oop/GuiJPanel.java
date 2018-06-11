@@ -37,7 +37,12 @@ public class GuiJPanel extends JPanel implements ActionListener{
 	public Scanner scan = new Scanner(System.in);
 	public String UserInput = "";
 	
-	public Person p1[] = new Person[10];
+	private Person p1[] = new Person[20];
+	private Employee e1[] = new Employee[20];
+	private Faculty f1[] = new Faculty[20];
+	private Student s1[] = new Student[20];
+	private Undergraduates u1[] = new Undergraduates[20];
+	private Graduate g1[] = new Graduate[20];
 	
 	
 	//

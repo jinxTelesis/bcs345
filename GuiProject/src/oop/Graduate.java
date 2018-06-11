@@ -1,12 +1,12 @@
 package oop;
 
-public class Graduates extends Student{
+public class Graduate extends Student{
 	
-	Graduates() {
+	Graduate() {
 		super();
 	}
 	
-	Graduates(String firstName, String lastName, String[] coursesTaken)
+	Graduate(String firstName, String lastName, String[] coursesTaken)
 	{
 		super(firstName,lastName,'G',coursesTaken);
 		for (int i = 0; i < coursesTaken.length;i++)
