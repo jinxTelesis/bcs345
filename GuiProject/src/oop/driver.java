@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 public class driver {
 
 	public static void main(String[] args) {
-		Object[] objectarr = new Object[1000];
+		
 		Employee emp = new Employee("Dave ", "Likes ", "Carrots");
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			

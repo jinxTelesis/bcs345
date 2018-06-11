@@ -10,6 +10,8 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class GuiJPanel extends JPanel implements ActionListener{
+	
+	Object[] objectarr = new Object[1000];
 	public static final String Person = "Person";
 	public static final String Employee = "Employee";
 	public static final String Faculty = "Faculty";
@@ -24,7 +26,9 @@ public class GuiJPanel extends JPanel implements ActionListener{
 	private JButton jbCreate, jbRemove, jbUpdate, jbDisplay;
 	private static final int NUM_COLUMNS = 10;
 	private String typeDisplay = "\n\n\n\n\n     Type currently \n        selected is";
+	private String selDisplay = " Person Selected ";
 	private JTextArea jTAtypeDisplay;
+	private JTextArea jTASelectionDisplay;
 	
 	public GuiJPanel() {
 		jlOne = new JLabel("");
@@ -35,6 +39,10 @@ public class GuiJPanel extends JPanel implements ActionListener{
 		jTAtypeDisplay = new JTextArea(typeDisplay, 10, 10);
 		jTAtypeDisplay.setLineWrap(true);
 		jTAtypeDisplay.setWrapStyleWord(true);
+		jTASelectionDisplay = new JTextArea(selDisplay, 5, 5);
+		jTASelectionDisplay.setLineWrap(true);
+		jTASelectionDisplay.setWrapStyleWord(true);
+		
 		// add highlight for the data type
 		add(jlOne);
 		add(jlTwo);
@@ -60,50 +68,68 @@ public class GuiJPanel extends JPanel implements ActionListener{
 		add(jbRemove);
 		add(jTAtypeDisplay);
 		add(jbUpdate);
-		add(jbDisplay);		
+		add(jbDisplay);
 		
+		add(jTASelectionDisplay);
 		
-		//jbAdd.addActionListener(this);
-		//jbSub.addActionListener(this);
-		//jbMult.addActionListener(this);
-		//jbDiv.addActionListener(this);
-
-		
-		
+		jbPer.addActionListener(this);
+		jbEmp.addActionListener(this);
+		jbFac.addActionListener(this);
+		jbUnd.addActionListener(this);
+		jbGra.addActionListener(this);
+		jbCreate.addActionListener(this);
+		jbRemove.addActionListener(this);
+		jbUpdate.addActionListener(this);
+		jbDisplay.addActionListener(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		//USE e.getSource(): // to decide... or
-		//USE e.getActionCommand() // to decide
 		
-		//jlDisplay1.setText(e.getActionCommand() + "clicked");
+		String cmd = e.getActionCommand();
 		
-		// if one button is clicked could use setText to change sign in middle of them
+		switch(cmd) {
+		case Person:
+			
+			System.out.println(" Person selected ");
+			break;
+			
+		case Employee:
+			System.out.println(" Employee selected ");
+			break;
+			
+		case Faculty:
+			System.out.println(" Faculty selected ");
+			break;
+			
+		case Undergraduate:
+			System.out.println(" Undergraduate selected ");
+			break;
+			
+		case Graduate:
+			System.out.println(" Graduate selected ");
+			break;
+			
+		case Create:
+			System.out.println(" Creating an object ");
+			break;
+			
+		case Remove:
+			System.out.println(" Removing an object ");
+			break;
+			
+		case Update:
+			System.out.println(" Updating an object ");
+			break;
+			
+		case Display:
+			System.out.println(" Displaying an object" );
+			break;
 		
-/*		if(cmd.equals(jbAdd))
-		{
-			result = num1 + num2;
-			operator = " + ";
+		default:
+			
+			break;
 		}
-		else if(cmd.equals(jbSub))
-		{
-			result = num1 - num2;
-			operator = " - ";
-		}
-		else {
-			result = Integer.MAX_VALUE;
-			operator = " bicycles ";
-		}
-*/		
-		
-		
-		
-		//Math.addExact(num1, num2);
-		//get the nums from jtf1 and jtf2
-		//calculate using the nums from jtf1 and jtf2
-		//display the result 
-		//jlDisplayResult.setText("result is " + num1 + operator + num2 + " = " + result);
 		
 		
 	}

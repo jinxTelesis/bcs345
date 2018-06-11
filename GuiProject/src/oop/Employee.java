@@ -1,6 +1,6 @@
 package oop;
 
-public class Employee implements Comparable<Employee> {
+public class Employee extends Person implements Comparable<Employee> {
 	private String firstName;
 	private String lastName;
 	private String deptName;
@@ -8,8 +8,7 @@ public class Employee implements Comparable<Employee> {
 	private int eID;
 
 	Employee(){
-		this.firstName = "";
-		this.lastName = "";
+		super();
 		this.deptName = "";
 		ID++;
 		this.eID = ID;
@@ -17,9 +16,10 @@ public class Employee implements Comparable<Employee> {
 	
 	Employee(String firstName, String lastName, String deptName)
 	{
-		this();
-		this.firstName = firstName;
-		this.lastName = lastName;
+		super(firstName, lastName);
+		//this.firstName = firstName;
+		//this.lastName = lastName;
+		ID++;
 		this.deptName = deptName;
 		this.eID = ID;
 	}
