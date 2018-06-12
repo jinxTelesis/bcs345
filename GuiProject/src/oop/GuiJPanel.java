@@ -42,7 +42,7 @@ public class GuiJPanel extends JPanel implements ActionListener{
     raisedbevel, loweredbevel, empty;
 
 	// got this from java documentation
-	private static final Boolean Verbose = true;
+	private static final Boolean Verbose = false;
 	
 	public static final String Person = "Person"; // could use a enum
 	public static final String Employee = "Employee";
@@ -66,6 +66,7 @@ public class GuiJPanel extends JPanel implements ActionListener{
 	private JTextArea jTAtypeDisplay;
 	private JTextArea jTASelectionDisplay;
 	private JTextArea jTADisData;
+	private JTextArea jTAInstructions;
 	public Scanner scan = new Scanner(System.in);
 	public String UserInput = "";
 	
@@ -76,6 +77,7 @@ public class GuiJPanel extends JPanel implements ActionListener{
 	private Staff st1[] = new Staff[20];
 	private Undergraduate u1[] = new Undergraduate[20];
 	private Graduate g1[] = new Graduate[20];
+	private String tempStrArr[] = new String[15];
 	
 	
 	private static int personArrCount =0; // refactored
@@ -91,9 +93,8 @@ public class GuiJPanel extends JPanel implements ActionListener{
 	private String alterState = new String();
 	
 	private String typeDisplay = "\n\n\n\n\n     Type currently \n        selected is";
-	private String selDisplay = " Person Selected ";
-	private String jlOneDis = " ";
-	private String jlTwoDis = " ";
+	private String selDisplay = " Enter data here one line at a time ";
+	private String instrDIsplay = " ";
 	private String jlFourDis = " ";
 	private String jlFiveDis = " ";
 	private String jlTADisData = " ";
@@ -109,8 +110,6 @@ public class GuiJPanel extends JPanel implements ActionListener{
 		// from java documentation 
 		
 		
-		jlOne = new JLabel(jlOneDis);
-		jlTwo = new JLabel(jlTwoDis);
 		jlThree = new JLabel("Select a type of member to alter");
 		jlFour = new JLabel(jlFourDis);
 		jlFive = new JLabel(jlFiveDis);
@@ -128,9 +127,14 @@ public class GuiJPanel extends JPanel implements ActionListener{
 		jTADisData.setBorder(loweredbevel);
 		jTADisData.setEditable(false);
 		
+		
+		jTAInstructions = new JTextArea(instrDIsplay,5,5);
+		jTAInstructions.setLineWrap(true);
+		jTAInstructions.setWrapStyleWord(true);
+		jTAInstructions.setBorder(loweredbevel);
+		jTADisData.setEditable(false);
+		
 		// add highlight for the data type
-		add(jlOne);
-		add(jlTwo);
 		add(jlThree);
 		add(jlFour);
 		add(jlFive);
@@ -162,6 +166,7 @@ public class GuiJPanel extends JPanel implements ActionListener{
 		jbEnter = new JButton(Enter);
 		add(jbEnter);
 		
+		add(jTAInstructions);
 		add(jTASelectionDisplay);
 		add(jTADisData);
 		
@@ -191,12 +196,22 @@ public class GuiJPanel extends JPanel implements ActionListener{
 			objState = "Person";
 			jTAtypeDisplay.setText(objState + " type currently selected ");
 			if(Verbose)System.out.println( objState + " selected ");
+			 
+			instrDIsplay = "Enter first name: \n";
+			instrDIsplay += "Enter last name: ";
+			jTAInstructions.setText(instrDIsplay);
+			instrDIsplay = " ";
 			break;
 			
 		case Employee:
 			objState = "Employee";
 			jTAtypeDisplay.setText(objState + " type currently selected ");
 			if(Verbose)System.out.println( objState + " selected ");
+			instrDIsplay = "Enter first name: \n";
+			instrDIsplay += "Enter last name: ";
+			instrDIsplay += "Enter dept name: ";
+			jTAInstructions.setText(instrDIsplay);
+			instrDIsplay = " ";
 			break;
 			
 		case Faculty:
@@ -204,30 +219,65 @@ public class GuiJPanel extends JPanel implements ActionListener{
 			jTAtypeDisplay.setText(objState + " type currently selected ");
 			if(Verbose)
 			System.out.println( objState + " selected ");
+			instrDIsplay = "Enter first name: \n";
+			instrDIsplay += "Enter last name: ";
+			instrDIsplay += "Enter dept name: ";
+			instrDIsplay += "Enter 0-9 courses: ";
+			jTAInstructions.setText(instrDIsplay);
+			instrDIsplay = " ";
 			break;
 
 		case Staff:
 			objState = "Staff";
 			jTAtypeDisplay.setText(objState + " type currently selected ");
 			if(Verbose)System.out.println( objState + " selected ");
+			instrDIsplay = "Enter first name: \n";
+			instrDIsplay += "Enter last name: ";
+			instrDIsplay += "Enter dept name: ";
+			instrDIsplay += "Enter 0-9 duties: ";
+			jTAInstructions.setText(instrDIsplay);
+			instrDIsplay = " ";
 			break;
 		
 		case Student:
 			objState = "Student";
 			jTAtypeDisplay.setText(objState + "type currently selected ");
 			if(Verbose)System.out.println( objState + " selected ");
+			instrDIsplay = "Enter first name: \n";
+			instrDIsplay += "Enter last name: ";
+			instrDIsplay += "Enter dept name: ";
+			instrDIsplay += "matr status U or G";
+			instrDIsplay += "Enter 0-7 courses";
+			jTAInstructions.setText(instrDIsplay);
+			instrDIsplay = " ";
 			break;
 			
 		case Undergraduate:
 			objState = "Undergraduate";
 			jTAtypeDisplay.setText(objState + " type currently selected ");
 			if(Verbose)System.out.println( objState + " selected ");
+			instrDIsplay = "Enter first name: \n";
+			instrDIsplay += "Enter last name: ";
+			instrDIsplay += "Enter dept name: ";
+			instrDIsplay += "Matr status U or G";
+			instrDIsplay += "Enter 0-7 courses";
+			instrDIsplay += "only undergraduate";
+			jTAInstructions.setText(instrDIsplay);
+			instrDIsplay = " ";
 			break;
 			
 		case Graduate:
 			objState = "Graduate";
 			jTAtypeDisplay.setText(objState + " type currently selected ");
 			if(Verbose)System.out.println( objState + " selected ");
+			instrDIsplay = "Enter first name: \n";
+			instrDIsplay += "Enter last name: ";
+			instrDIsplay += "Enter dept name: ";
+			instrDIsplay += "Matr status U or G";
+			instrDIsplay += "Enter 0-7 courses";
+			instrDIsplay += "only graduate";
+			jTAInstructions.setText(instrDIsplay);
+			instrDIsplay = " ";
 			break;
 			
 		case Create:
@@ -261,7 +311,36 @@ public class GuiJPanel extends JPanel implements ActionListener{
 				case Person:
 					if(alterState.equalsIgnoreCase(" Creating ") && personArrCount < 20) // worked needs output message for past 10
 					{
-						javax.swing.SwingUtilities.invokeLater(new Runnable() {
+						//tempStrArr = getStrFromJTextArea(jTASelectionDisplay);
+						String s = jTASelectionDisplay.getText();
+						boolean newLine = true;
+						int wordIndex = 0;
+						char ch;
+						for (int i =0; i < s.length();i++)
+						{
+							ch = s.charAt(i);
+							if(Character.isLetter(ch))
+							{
+								tempStrArr[wordIndex] += ch;
+								newLine = false;
+							}
+							else
+							{
+								if (newLine == false)
+								{
+									wordIndex++;
+									newLine = true;
+								}
+							}
+							
+						}
+						
+						for(int i = 0;i < wordIndex;i++)
+						{
+							tempStrArr[i].replace("null", "");
+						}
+						
+						/*javax.swing.SwingUtilities.invokeLater(new Runnable() {
 							
 							@Override
 							public void run() {
@@ -270,14 +349,18 @@ public class GuiJPanel extends JPanel implements ActionListener{
 							formJFrame1.setSize(600, 600);
 							formJFrame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 							}
-							});
+							});*/
 						// Main Form to show after the Login Form..
 						testStr = "Person"; if(Verbose) {// deliberate odd spacing
 						System.out.println(testStr + " update worked " + objState);
 						System.out.println(testStr + "Person update worked " + alterState);}
 						p1[personArrCount] = new Person();
-						p1[personArrCount].setFirstName("Tom");
-						p1[personArrCount].setLastName("Brandy");
+						System.out.println(" Testing ");
+						System.out.println(tempStrArr[0]);
+						System.out.println(tempStrArr[1]);
+						p1[personArrCount].setFirstName(tempStrArr[0]);
+						p1[personArrCount].setLastName(tempStrArr[1]);
+						
 						personArrCount++;
 					}
 					
@@ -290,7 +373,7 @@ public class GuiJPanel extends JPanel implements ActionListener{
 						p1[personArrCount-1].setLastName(" ");
 						
 						// or
-						p1[personArrCount-1] = null;
+						//p1[personArrCount-1] = null;
 						personArrCount--;
 					}
 					
@@ -310,6 +393,7 @@ public class GuiJPanel extends JPanel implements ActionListener{
 						System.out.println(testStr + " update worked " + alterState);}
 						//jlTADisData = testStr + " 's name is: " + p1[personArrCount-1].getFirstName() +" \n ";
 						//jlTADisData += testStr + " 's last name is: " + p1[personArrCount-1].getLastName() + " \n ";
+						jlTADisData = " ";
 						jlTADisData += p1.toString();
 						jTADisData.setText(jlTADisData);
 					}
@@ -616,9 +700,52 @@ public class GuiJPanel extends JPanel implements ActionListener{
 		
 	}
 	
-	
-	public int getIntFromTextField(JTextField jtf) {
-		return Integer.parseInt(jtf.getText()); // assuming user always enters a number wrapper class!?
+	private void elseif(boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	// can prob remove
+	public String[] getStrFromJTextArea(JTextArea jTASelectionDisplay) {
+		String s = jTASelectionDisplay.getText();
+		boolean newLine = true;
+		//System.out.println(s);
+		//s.replace("null", "");
+		//System.out.println(s);
+		int wordIndex = 0;
+		char ch;
+		for (int i =0; i < s.length();i++)
+		{
+			ch = s.charAt(i);
+			if(Character.isLetter(ch))
+			{
+				tempStrArr[wordIndex] += ch;
+				newLine = false;
+			}
+			else
+			{
+				if (newLine == false)
+				{
+					wordIndex++;
+					newLine = true;
+				}
+			}
+			
+		}
+		
+		for (int i = 0; i < wordIndex;i++)
+		{
+			System.out.println(tempStrArr[i].replace("null", ""));
+		} // assuming user always enters a number wrapper class!?
+		
+		for(int i = 0; i < wordIndex;i++)
+		{
+			tempStrArr[i].replace("null", "");
+		}
+		
+		return tempStrArr;
+		
+		
 	}
 	
 	//inner class nested class for textfields
