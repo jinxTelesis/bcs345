@@ -5,6 +5,7 @@ public class Faculty extends Employee{
 	public static final int MAX_NUM_COURSES = 10;
 	private String courseArr[] = new String[9];
 	
+
 	Faculty() {
 		super();
 	}
@@ -16,10 +17,14 @@ public class Faculty extends Employee{
 		this.courseArr = courseArr;
 	}
 	
-	
-	public String[] getcourseArr() {
-		return this.courseArr;
+	public String[] getCourseArr() {
+		return courseArr;
 	}
+
+	public void setCourseArr(String[] courseArr) {
+		this.courseArr = courseArr;
+	}
+
 	
 	public String toString() { // needs more complete implementation fill count
 		String s = null;

@@ -1,17 +1,15 @@
 package oop;
 
-public class Graduate extends Student{
+public class UndergradClass extends Student {
 	
-	Graduate() {
-		super();
+	UndergradClass(){
+		super();// need courses only to be U // and status 
 	}
 	
-	Graduate(String firstName, String lastName, String[] coursTak)
+	UndergradClass(String firstName, String lastName, String[] coursesTaken)
 	{
-		super(firstName,lastName,'G',coursTak);
-		//coursesTaken = coursTak;
+		super(firstName,lastName,'U',coursesTaken);
 	}
-		
 	
 	public boolean equals(Object o)
 	{
@@ -25,5 +23,7 @@ public class Graduate extends Student{
 		}
 		return false;
 	}
+	
+	
 
 }

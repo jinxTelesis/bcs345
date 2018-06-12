@@ -27,6 +27,51 @@ public class Student extends Person implements Comparable<Student>{
 		this.matriculantStatus = matriculantStatus;
 		this.coursesTaken = coursesTaken;
 		
+		for(int i = 0; i < coursesTaken.length;i++)
+		{
+			System.out.println(coursesTaken[i]);
+		}
+		
+		if(this.matriculantStatus == 'U' || this.matriculantStatus == 'u')
+		{
+			for (int i = 0; i < coursesTaken.length;i++)
+			{
+				if(coursesTaken[i] != null)
+				coursesTaken[i].toUpperCase();
+			}
+			for (int i = 0; i < coursesTaken.length;i++)
+			{
+				System.out.print(" " + coursesTaken[i].charAt(0) + " ");
+				if(coursesTaken[i] != null)
+				if(coursesTaken[i].charAt(0) != 'U')
+				{
+					System.out.println("Can't enroll in this class it is a Graduate class");
+					setCoursesTakenSingle("Invalid_reenter", i);
+				}
+			}
+			
+		}
+		
+		if(this.matriculantStatus == 'G' || this.matriculantStatus == 'g')
+		{
+			
+			for (int i = 0; i < coursesTaken.length;i++)
+			{
+				if(coursesTaken[i] != null)
+				coursesTaken[i].toUpperCase();
+			}
+			for (int i = 0; i < coursesTaken.length;i++)
+			{
+				System.out.print(" " + coursesTaken[i].charAt(0) + " ");
+				if(coursesTaken[i] != null)
+				if(coursesTaken[i].charAt(0) != 'G')
+				{
+					System.out.println("Can't enroll in this class it is a Graduate class");
+					setCoursesTakenSingle("Invalid_reenter", i);
+				}
+			}
+		}
+		
 	}
 
 	public char getMatriculantStatus() {
@@ -42,7 +87,49 @@ public class Student extends Person implements Comparable<Student>{
 	}
 
 	public void setCoursesTaken(String[] coursesTaken) {
+		
 		this.coursesTaken = coursesTaken;
+		
+		if(this.matriculantStatus == 'U' || this.matriculantStatus == 'u')
+		{
+			for (int i = 0; i < coursesTaken.length;i++)
+			{
+				if(coursesTaken[i] != null)
+				coursesTaken[i].toUpperCase();
+			}
+			for (int i = 0; i < coursesTaken.length;i++)
+			{
+				System.out.print(" " + coursesTaken[i].charAt(0) + " ");
+				if(coursesTaken[i] != null)
+				if(coursesTaken[i].charAt(0) != 'U')
+				{
+					System.out.println("Can't enroll in this class it is a Graduate class");
+					setCoursesTakenSingle("Invalid_reenter", i);
+				}
+			}
+			
+		}
+		
+		if(this.matriculantStatus == 'G' || this.matriculantStatus == 'g')
+		{
+			
+			for (int i = 0; i < coursesTaken.length;i++)
+			{
+				if(coursesTaken[i] != null)
+				coursesTaken[i].toUpperCase();
+			}
+			for (int i = 0; i < coursesTaken.length;i++)
+			{
+				System.out.print(" " + coursesTaken[i].charAt(0) + " ");
+				if(coursesTaken[i] != null)
+				if(coursesTaken[i].charAt(0) != 'G')
+				{
+					System.out.println("Can't enroll in this class it is a Graduate class");
+					setCoursesTakenSingle("Invalid_reenter", i);
+				}
+			}
+		}
+		
 	}
 	
 	public void setCoursesTakenSingle(String coursesTaken, int pos)
@@ -55,8 +142,8 @@ public class Student extends Person implements Comparable<Student>{
 	}
 	
 	public String toString() {
-		String s = null;// not the best way to do it performance wise
-		s+= super.toString();
+		String s = new String(); 
+		s += super.toString();
 		//s+= "The student's first name is: " + this.firstName + " ";
 		//s+= "The student's last name is : " + this.lastName + " ";
 		s+= "The student's id is : " + this.sID + " ";
