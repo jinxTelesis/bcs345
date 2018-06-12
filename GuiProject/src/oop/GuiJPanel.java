@@ -228,39 +228,38 @@ public class GuiJPanel extends JPanel implements ActionListener{
 			
 		case Create:
 			alterState = " Creating ";
-			System.out.println(alterState + " an object ");
+			if(Verbose)System.out.println(alterState + " an object ");
 			break;
 			
 		case Remove:
 			alterState = " Removing ";
-			System.out.println(alterState + " an object ");
+			if(Verbose)System.out.println(alterState + " an object ");
 			break;
 			
 		case Update:
 			alterState = " Updating ";
-			System.out.println(alterState + " an object ");
+			if(Verbose)System.out.println(alterState + " an object ");
 			break;
 			
 		case Display:
 			alterState = " Displaying ";
-			System.out.println(alterState + " an object" );
+			if(Verbose)System.out.println(alterState + " an object" );
 			break;
 			
 		case Enter:
+			if(Verbose) {
 			System.out.print("Entering ");
 			System.out.println(alterState);
-			System.out.println(" changes to" + objState);
+			System.out.println(" changes to" + objState);}
 			
 			switch(objState) // add text field or set up text field for display
 			{
 				case Person:
 					if(alterState.equalsIgnoreCase(" Creating ") && personArrCount < 20) // worked needs output message for past 10
 					{
-						testStr = "Person";
+						testStr = "Person"; if(Verbose) {// deliberate odd spacing
 						System.out.println(testStr + " update worked " + objState);
-						System.out.println(testStr + "Person update worked " + alterState);
-						
-						// need an incrementor for id?
+						System.out.println(testStr + "Person update worked " + alterState);}
 						p1[personArrCount] = new Person();
 						p1[personArrCount].setFirstName("Tom");
 						p1[personArrCount].setLastName("Brandy");
@@ -269,27 +268,22 @@ public class GuiJPanel extends JPanel implements ActionListener{
 					
 					if(alterState.equalsIgnoreCase(" Removing ") && personArrCount > 0)
 					{
-						testStr = "Person";
+						testStr = "Person"; if(Verbose) {
 						System.out.println(testStr + " update worked " + objState);
-						System.out.println(testStr + " update worked " + alterState);
-						
-						// need an incrementor for id?
+						System.out.println(testStr + " update worked " + alterState);}
 						p1[personArrCount-1].setFirstName(" ");
 						p1[personArrCount-1].setLastName(" ");
 						
 						// or
 						p1[personArrCount-1] = null;
-						
 						personArrCount--;
 					}
 					
 					if(alterState.equalsIgnoreCase(" Updating ") && personArrCount > 0)
 					{
-						testStr = "Person";
+						testStr = "Person"; if(Verbose) {
 						System.out.println(testStr + " update worked " + objState);
-						System.out.println(testStr + " update worked " + alterState);
-						
-						// need an incrementor for id?
+						System.out.println(testStr + " update worked " + alterState);}
 						p1[personArrCount-1].setFirstName("Jim");
 						p1[personArrCount-1].setLastName("Candy");
 					}
