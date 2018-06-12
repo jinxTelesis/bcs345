@@ -470,45 +470,45 @@ public class GuiJPanel extends JPanel implements ActionListener{
 					
 					if(alterState.equalsIgnoreCase(" Creating ") && studentArrCount < 20) // worked needs output message for past 10
 					{
-						testStr = "Staff";if(Verbose) {
+						testStr = "Student";if(Verbose) {
 						System.out.println(testStr + " update worked " + objState);
 						System.out.println(testStr + " update worked " + alterState);}
 
-						st1[staffArrCount] = new Staff();// 
-						st1[staffArrCount].setFirstName("Tom");
-						st1[staffArrCount].setLastName("Brandy");
-						staffArrCount++;
+						s1[studentArrCount] = new Student();// 
+						s1[studentArrCount].setFirstName("Tom");
+						s1[studentArrCount].setLastName("Brandy");
+						studentArrCount++;
 					}
 					
-					if(alterState.equalsIgnoreCase(" Removing ") && staffArrCount > 0)
+					if(alterState.equalsIgnoreCase(" Removing ") && studentArrCount > 0)
 					{
-						testStr = "Staff";if(Verbose) {
+						testStr = "Student";if(Verbose) {
 						System.out.println(testStr + " update worked " + objState);
 						System.out.println(testStr + " update worked " + alterState);}
-						st1[staffArrCount-1].setFirstName(" ");
-						st1[staffArrCount-1].setLastName(" ");
+						s1[studentArrCount-1].setFirstName(" ");
+						s1[studentArrCount-1].setLastName(" ");
 						
-						st1[staffArrCount-1] = null;
-						staffArrCount--;
+						s1[studentArrCount-1] = null;
+						studentArrCount--;
 					}
 					
-					if(alterState.equalsIgnoreCase(" Updating ") && staffArrCount > 0)
+					if(alterState.equalsIgnoreCase(" Updating ") && studentArrCount > 0)
 					{
-						testStr = "Staff";if(Verbose) {
+						testStr = "Student";if(Verbose) {
 						System.out.println(testStr + " update worked " + objState);
 						System.out.println(testStr + " update worked " + alterState);}
-						st1[staffArrCount-1].setFirstName("Jim");
-						st1[staffArrCount-1].setLastName("Candy");
+						s1[studentArrCount-1].setFirstName("Jim");
+						s1[studentArrCount-1].setLastName("Candy");
 					}
 					
-					if(alterState.equals(" Displaying ") && staffArrCount> 0)
+					if(alterState.equals(" Displaying ") && studentArrCount> 0)
 					{
-						testStr = "Staff";if(Verbose) {
+						testStr = "Student";if(Verbose) {
 						System.out.println(testStr + " update worked " + objState);
 						System.out.println(testStr + " update worked " + alterState);}
 						//jlTADisData = testStr + " 's name is: " + st1[staffArrCount-1].getFirstName() +" \n ";
 						//jlTADisData += testStr + " 's last name is: " + st1[staffArrCount-1].getLastName() + " \n ";
-						jlTADisData += st1.toString();
+						jlTADisData += s1.toString();
 						jTADisData.setText(jlTADisData);
 					}
 					
