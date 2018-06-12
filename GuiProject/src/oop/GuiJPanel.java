@@ -5,6 +5,8 @@ package oop;
 // refactor code with split into more class // functions
 // build a form to collect data
 // update class checking logic for constructors and course registration
+//inner class nested class for textfields
+//nested class for jbuttons
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -12,6 +14,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -201,7 +204,7 @@ public class GuiJPanel extends JPanel implements ActionListener{
 			if(Verbose)
 			System.out.println( objState + " selected ");
 			break;
-			// need to add constant first
+
 		case Staff:
 			objState = "Staff";
 			jTAtypeDisplay.setText(objState + " type currently selected ");
@@ -257,6 +260,17 @@ public class GuiJPanel extends JPanel implements ActionListener{
 				case Person:
 					if(alterState.equalsIgnoreCase(" Creating ") && personArrCount < 20) // worked needs output message for past 10
 					{
+						javax.swing.SwingUtilities.invokeLater(new Runnable() {
+							
+							@Override
+							public void run() {
+							FormJFrame formJFrame1 = new FormJFrame();
+							formJFrame1.setVisible(true);
+							formJFrame1.setSize(600, 600);
+							formJFrame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+							}
+							});
+						// Main Form to show after the Login Form..
 						testStr = "Person"; if(Verbose) {// deliberate odd spacing
 						System.out.println(testStr + " update worked " + objState);
 						System.out.println(testStr + "Person update worked " + alterState);}
@@ -511,9 +525,9 @@ public class GuiJPanel extends JPanel implements ActionListener{
 					
 					if(alterState.equals(" Displaying ") && gradeArrCount> 0)
 					{
-						testStr = "Undergraduate";
+						testStr = "Undergraduate";if(Verbose) {
 						System.out.println(testStr + " update worked " + objState);
-						System.out.println(testStr + " update worked " + alterState);
+						System.out.println(testStr + " update worked " + alterState);}
 						jlTADisData = testStr + " 's name is: " + g1[gradeArrCount-1].getFirstName() +" \n ";
 						jlTADisData += testStr + " 's last name is: " + g1[gradeArrCount-1].getLastName() + " \n ";
 						jTADisData.setText(jlTADisData);
