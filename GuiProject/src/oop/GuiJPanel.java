@@ -7,6 +7,7 @@ package oop;
 // update class checking logic for constructors and course registration
 //inner class nested class for textfields
 //nested class for jbuttons
+//need to clear output display text
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -307,8 +308,9 @@ public class GuiJPanel extends JPanel implements ActionListener{
 						testStr = "Person";if(Verbose) {
 						System.out.println(testStr + " update worked " + objState);
 						System.out.println(testStr + " update worked " + alterState);}
-						jlTADisData = testStr + " 's name is: " + p1[personArrCount-1].getFirstName() +" \n ";
-						jlTADisData += testStr + " 's last name is: " + p1[personArrCount-1].getLastName() + " \n ";
+						//jlTADisData = testStr + " 's name is: " + p1[personArrCount-1].getFirstName() +" \n ";
+						//jlTADisData += testStr + " 's last name is: " + p1[personArrCount-1].getLastName() + " \n ";
+						jlTADisData += p1.toString();
 						jTADisData.setText(jlTADisData);
 					}
 					break;
@@ -353,9 +355,10 @@ public class GuiJPanel extends JPanel implements ActionListener{
 						testStr = "Employee";if(Verbose) {
 						System.out.println(testStr + " update worked " + objState);
 						System.out.println(testStr + " update worked " + alterState);}
-						jlTADisData = testStr + " 's name is: " + e1[employeeArrCount-1].getFirstName() +" \n ";
-						jlTADisData += testStr + " 's last name is: " + e1[employeeArrCount-1].getLastName() + " \n ";
-						jlTADisData += testStr + " 's department name is : " +e1[employeeArrCount-1].getDeptName();
+						//jlTADisData = testStr + " 's name is: " + e1[employeeArrCount-1].getFirstName() +" \n ";
+						//jlTADisData += testStr + " 's last name is: " + e1[employeeArrCount-1].getLastName() + " \n ";
+						//jlTADisData += testStr + " 's department name is : " +e1[employeeArrCount-1].getDeptName();
+						jlTADisData += e1.toString();
 						jTADisData.setText(jlTADisData);
 					}
 					break;
@@ -366,8 +369,8 @@ public class GuiJPanel extends JPanel implements ActionListener{
 						testStr = "Faculty";if(Verbose) {
 						System.out.println(testStr + " update worked " + objState);
 						System.out.println(testStr + " update worked " + alterState);}
-
-						f1[facultyArrCount] = new Faculty();// 
+						String courseArr[] = new String[9];
+						f1[facultyArrCount] = new Faculty("Dick","Trickle","Math",courseArr);// 
 						//f1[facultyArrCount].setFirstName("Tom");
 						//f1[facultyArrCount].setLastName("Brandy");
 						facultyArrCount++;
@@ -381,6 +384,8 @@ public class GuiJPanel extends JPanel implements ActionListener{
 
 						f1[facultyArrCount-1].setFirstName(" ");
 						f1[facultyArrCount-1].setLastName(" ");
+						
+						f1[facultyArrCount-1] = null;
 						facultyArrCount--;
 					}
 					
@@ -391,6 +396,8 @@ public class GuiJPanel extends JPanel implements ActionListener{
 						System.out.println(testStr + " update worked " + alterState);}
 						f1[facultyArrCount-1].setFirstName("Jim");
 						f1[facultyArrCount-1].setLastName("Candy");
+						f1[facultyArrCount-1].setDeptName("Math");
+						
 					}
 					
 					if(alterState.equals(" Displaying ") && facultyArrCount> 0)
@@ -398,8 +405,7 @@ public class GuiJPanel extends JPanel implements ActionListener{
 						testStr = "Faculty";if(Verbose) {
 						System.out.println(testStr + " update worked " + objState);
 						System.out.println(testStr + " update worked " + alterState);}
-						jlTADisData = testStr + " 's name is: " + f1[facultyArrCount-1].getFirstName() +" \n ";
-						jlTADisData += testStr + " 's last name is: " + f1[facultyArrCount-1].getLastName() + " \n ";
+						jlTADisData += f1[facultyArrCount-1].toString();
 						jTADisData.setText(jlTADisData);
 					}
 					break;
@@ -424,6 +430,8 @@ public class GuiJPanel extends JPanel implements ActionListener{
 						System.out.println(testStr + " update worked " + alterState);}
 						st1[staffArrCount-1].setFirstName(" ");
 						st1[staffArrCount-1].setLastName(" ");
+						
+						st1[staffArrCount-1] = null;
 						staffArrCount--;
 					}
 					
@@ -441,11 +449,70 @@ public class GuiJPanel extends JPanel implements ActionListener{
 						testStr = "Staff";if(Verbose) {
 						System.out.println(testStr + " update worked " + objState);
 						System.out.println(testStr + " update worked " + alterState);}
-						jlTADisData = testStr + " 's name is: " + st1[staffArrCount-1].getFirstName() +" \n ";
-						jlTADisData += testStr + " 's last name is: " + st1[staffArrCount-1].getLastName() + " \n ";
+						//jlTADisData = testStr + " 's name is: " + st1[staffArrCount-1].getFirstName() +" \n ";
+						//jlTADisData += testStr + " 's last name is: " + st1[staffArrCount-1].getLastName() + " \n ";
+						jlTADisData += st1.toString();
 						jTADisData.setText(jlTADisData);
 					}
 					break;
+					
+				// fixing 
+				//
+				//
+				//
+				//
+				// fixing
+				//
+				//
+				//
+					
+				case Student:
+					
+					if(alterState.equalsIgnoreCase(" Creating ") && studentArrCount < 20) // worked needs output message for past 10
+					{
+						testStr = "Staff";if(Verbose) {
+						System.out.println(testStr + " update worked " + objState);
+						System.out.println(testStr + " update worked " + alterState);}
+
+						st1[staffArrCount] = new Staff();// 
+						st1[staffArrCount].setFirstName("Tom");
+						st1[staffArrCount].setLastName("Brandy");
+						staffArrCount++;
+					}
+					
+					if(alterState.equalsIgnoreCase(" Removing ") && staffArrCount > 0)
+					{
+						testStr = "Staff";if(Verbose) {
+						System.out.println(testStr + " update worked " + objState);
+						System.out.println(testStr + " update worked " + alterState);}
+						st1[staffArrCount-1].setFirstName(" ");
+						st1[staffArrCount-1].setLastName(" ");
+						
+						st1[staffArrCount-1] = null;
+						staffArrCount--;
+					}
+					
+					if(alterState.equalsIgnoreCase(" Updating ") && staffArrCount > 0)
+					{
+						testStr = "Staff";if(Verbose) {
+						System.out.println(testStr + " update worked " + objState);
+						System.out.println(testStr + " update worked " + alterState);}
+						st1[staffArrCount-1].setFirstName("Jim");
+						st1[staffArrCount-1].setLastName("Candy");
+					}
+					
+					if(alterState.equals(" Displaying ") && staffArrCount> 0)
+					{
+						testStr = "Staff";if(Verbose) {
+						System.out.println(testStr + " update worked " + objState);
+						System.out.println(testStr + " update worked " + alterState);}
+						//jlTADisData = testStr + " 's name is: " + st1[staffArrCount-1].getFirstName() +" \n ";
+						//jlTADisData += testStr + " 's last name is: " + st1[staffArrCount-1].getLastName() + " \n ";
+						jlTADisData += st1.toString();
+						jTADisData.setText(jlTADisData);
+					}
+					
+				
 				
 				case Undergraduate: // could just pass this all to a constructor... 
 					if(alterState.equalsIgnoreCase(" Creating ") && underArrCount < 20) // worked needs output message for past 10
@@ -484,8 +551,9 @@ public class GuiJPanel extends JPanel implements ActionListener{
 						testStr = "Undergraduate";if(Verbose) {
 						System.out.println(testStr + " update worked " + objState);
 						System.out.println(testStr + " update worked " + alterState);}
-						jlTADisData = testStr + " 's name is: " + u1[underArrCount-1].getFirstName() +" \n ";
-						jlTADisData += testStr + " 's last name is: " + u1[underArrCount-1].getLastName() + " \n ";
+						//jlTADisData = testStr + " 's name is: " + u1[underArrCount-1].getFirstName() +" \n ";
+						//jlTADisData += testStr + " 's last name is: " + u1[underArrCount-1].getLastName() + " \n ";
+						jlTADisData += u1.toString();
 						jTADisData.setText(jlTADisData);
 					}
 					break;
@@ -528,8 +596,9 @@ public class GuiJPanel extends JPanel implements ActionListener{
 						testStr = "Undergraduate";if(Verbose) {
 						System.out.println(testStr + " update worked " + objState);
 						System.out.println(testStr + " update worked " + alterState);}
-						jlTADisData = testStr + " 's name is: " + g1[gradeArrCount-1].getFirstName() +" \n ";
-						jlTADisData += testStr + " 's last name is: " + g1[gradeArrCount-1].getLastName() + " \n ";
+						//jlTADisData = testStr + " 's name is: " + g1[gradeArrCount-1].getFirstName() +" \n ";
+						//jlTADisData += testStr + " 's last name is: " + g1[gradeArrCount-1].getLastName() + " \n ";
+						jlTADisData += g1.toString();
 						jTADisData.setText(jlTADisData);
 					}
 					break;
