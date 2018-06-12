@@ -290,56 +290,45 @@ public class GuiJPanel extends JPanel implements ActionListener{
 					
 					if(alterState.equals(" Displaying ") && personArrCount > 0)
 					{
-						testStr = "Person";
+						testStr = "Person";if(Verbose) {
 						System.out.println(testStr + " update worked " + objState);
-						System.out.println(testStr + " update worked " + alterState);
+						System.out.println(testStr + " update worked " + alterState);}
 						jlTADisData = testStr + " 's name is: " + p1[personArrCount-1].getFirstName() +" \n ";
 						jlTADisData += testStr + " 's last name is: " + p1[personArrCount-1].getLastName() + " \n ";
 						jTADisData.setText(jlTADisData);
 					}
 					break;
-				
-				// done for now
-					
+
 				case Employee: 
 					if(alterState.equalsIgnoreCase(" Creating ") && employeeArrCount < 20) // worked needs output message for past 10
 					{
-						testStr = "Employee";
+						testStr = "Employee"; if(Verbose) {
 						System.out.println(testStr + " update worked " + objState);
-						System.out.println(testStr + " update worked " + alterState);
+						System.out.println(testStr + " update worked " + alterState);}
 						
-						// need an incrementor for id?
-						//e1[employeeArrCount] = new Employee();// 
 						e1[employeeArrCount] = new Employee("Jimbo ", " Ghost ", "Space Marine");
-						//e1[employeeArrCount].setFirstName("Tom");
-						//e1[employeeArrCount].setLastName("Brandy");
 						employeeArrCount++;
 					}
 					
 					if(alterState.equalsIgnoreCase(" Removing ") && employeeArrCount > 0)
 					{
-						testStr = "Employee";
+						testStr = "Employee"; if(Verbose) {
 						System.out.println(testStr + " update worked " + objState);
-						System.out.println(testStr + " update worked " + alterState);
-						
-						// need an incrementor for id?
+						System.out.println(testStr + " update worked " + alterState);}
 						e1[employeeArrCount-1].setFirstName(" ");
 						e1[employeeArrCount-1].setLastName(" ");
 						e1[employeeArrCount-1].setDeptName(" ");
 						
 						// or
 						e1[employeeArrCount-1] = null;
-						//
 						employeeArrCount--;
 					}
 					
 					if(alterState.equalsIgnoreCase(" Updating ") && employeeArrCount > 0)
 					{
-						testStr = "Employee";
+						testStr = "Employee";if(Verbose) {
 						System.out.println(testStr + " update worked " + objState);
-						System.out.println(testStr + " update worked " + alterState);
-						
-						// need an incrementor for id?
+						System.out.println(testStr + " update worked " + alterState);}
 						e1[employeeArrCount-1].setFirstName("Jim");
 						e1[employeeArrCount-1].setLastName("Candy");
 						e1[employeeArrCount-1].setDeptName("Accounting");
@@ -347,9 +336,9 @@ public class GuiJPanel extends JPanel implements ActionListener{
 					
 					if(alterState.equals(" Displaying ") && employeeArrCount > 0)
 					{
-						testStr = "Employee";
+						testStr = "Employee";if(Verbose) {
 						System.out.println(testStr + " update worked " + objState);
-						System.out.println(testStr + " update worked " + alterState);
+						System.out.println(testStr + " update worked " + alterState);}
 						jlTADisData = testStr + " 's name is: " + e1[employeeArrCount-1].getFirstName() +" \n ";
 						jlTADisData += testStr + " 's last name is: " + e1[employeeArrCount-1].getLastName() + " \n ";
 						jlTADisData += testStr + " 's department name is : " +e1[employeeArrCount-1].getDeptName();
@@ -360,11 +349,10 @@ public class GuiJPanel extends JPanel implements ActionListener{
 				case Faculty:
 					if(alterState.equalsIgnoreCase(" Creating ") && facultyArrCount < 20) // worked needs output message for past 10
 					{
-						testStr = "Faculty";
+						testStr = "Faculty";if(Verbose) {
 						System.out.println(testStr + " update worked " + objState);
-						System.out.println(testStr + " update worked " + alterState);
-						
-						// need an incrementor for id?
+						System.out.println(testStr + " update worked " + alterState);}
+
 						f1[facultyArrCount] = new Faculty();// 
 						//f1[facultyArrCount].setFirstName("Tom");
 						//f1[facultyArrCount].setLastName("Brandy");
@@ -373,11 +361,10 @@ public class GuiJPanel extends JPanel implements ActionListener{
 					
 					if(alterState.equalsIgnoreCase(" Removing ") && facultyArrCount > 0)
 					{
-						testStr = "Faculty";
+						testStr = "Faculty";if(Verbose) {
 						System.out.println(testStr + " update worked " + objState);
-						System.out.println(testStr + " update worked " + alterState);
-						
-						// need an incrementor for id?
+						System.out.println(testStr + " update worked " + alterState);}
+
 						f1[facultyArrCount-1].setFirstName(" ");
 						f1[facultyArrCount-1].setLastName(" ");
 						facultyArrCount--;
@@ -385,9 +372,9 @@ public class GuiJPanel extends JPanel implements ActionListener{
 					
 					if(alterState.equalsIgnoreCase(" Updating ") && facultyArrCount > 0)
 					{
-						testStr = "Faculty";
+						testStr = "Faculty";if(Verbose) {
 						System.out.println(testStr + " update worked " + objState);
-						System.out.println(testStr + " update worked " + alterState);
+						System.out.println(testStr + " update worked " + alterState);}
 						
 						// need an incrementor for id?
 						f1[facultyArrCount-1].setFirstName("Jim");
