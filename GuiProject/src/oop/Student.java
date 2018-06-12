@@ -21,32 +21,14 @@ public class Student extends Person implements Comparable<Student>{
 		this.coursesTaken = coursesTaken; // yeah i know sets to self
 	}
 	
-	Student(String firstName, String lastName, char matriculantStatus, String[] coursesTaken)
+	Student(String firstName, String lastName,char matriculantStatus, String[] coursesTaken)
 	{
-		super();// remember to call this rather than just rebuild default
-		//this.firstName = firstName;
-		//this.lastName = lastName;
+		super(firstName,lastName);// remember to call this rather than just rebuild default
 		this.matriculantStatus = matriculantStatus;
 		this.coursesTaken = coursesTaken;
 		
 	}
-/*	
-	public String getFirstName() {
-		return firstName;
-	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-*/
 	public char getMatriculantStatus() {
 		return matriculantStatus;
 	}

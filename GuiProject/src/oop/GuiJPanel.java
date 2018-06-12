@@ -38,6 +38,8 @@ public class GuiJPanel extends JPanel implements ActionListener{
     raisedbevel, loweredbevel, empty;
 
 	// got this from java documentation
+	private static final Boolean Verbose = true;
+	
 	public static final String Person = "Person"; // could use a enum
 	public static final String Employee = "Employee";
 	public static final String Faculty = "Faculty";
@@ -132,11 +134,13 @@ public class GuiJPanel extends JPanel implements ActionListener{
 		jbEmp = new JButton(Employee);
 		jbFac = new JButton(Faculty);
 		jbSta = new JButton(Staff);
+		jbStu = new JButton(Student);
 		jbUnd = new JButton(Undergraduate);
 		jbGra = new JButton(Graduate);
 		add(jbPer);
 		add(jbEmp);
 		add(jbFac);
+		add(jbStu);
 		add(jbSta);
 		add(jbUnd);
 		add(jbGra);
@@ -161,6 +165,7 @@ public class GuiJPanel extends JPanel implements ActionListener{
 		jbEmp.addActionListener(this);
 		jbFac.addActionListener(this);
 		jbSta.addActionListener(this);
+		jbStu.addActionListener(this);
 		jbUnd.addActionListener(this);
 		jbGra.addActionListener(this);
 		jbCreate.addActionListener(this);
@@ -180,38 +185,45 @@ public class GuiJPanel extends JPanel implements ActionListener{
 		switch(cmd) {
 		case Person:
 			objState = "Person";
-			jTAtypeDisplay.setText(objState + " type currently selected "); 
-			System.out.println( objState + " selected ");
+			jTAtypeDisplay.setText(objState + " type currently selected ");
+			if(Verbose)System.out.println( objState + " selected ");
 			break;
 			
 		case Employee:
 			objState = "Employee";
 			jTAtypeDisplay.setText(objState + " type currently selected ");
-			System.out.println( objState + " selected ");
+			if(Verbose)System.out.println( objState + " selected ");
 			break;
 			
 		case Faculty:
 			objState = "Faculty";
 			jTAtypeDisplay.setText(objState + " type currently selected ");
+			if(Verbose)
 			System.out.println( objState + " selected ");
 			break;
 			// need to add constant first
 		case Staff:
 			objState = "Staff";
 			jTAtypeDisplay.setText(objState + " type currently selected ");
-			System.out.println( objState + " selected ");
+			if(Verbose)System.out.println( objState + " selected ");
+			break;
+		
+		case Student:
+			objState = "Student";
+			jTAtypeDisplay.setText(objState + "type currently selected ");
+			if(Verbose)System.out.println( objState + " selected ");
 			break;
 			
 		case Undergraduate:
 			objState = "Undergraduate";
 			jTAtypeDisplay.setText(objState + " type currently selected ");
-			System.out.println( objState + " selected ");
+			if(Verbose)System.out.println( objState + " selected ");
 			break;
 			
 		case Graduate:
 			objState = "Graduate";
 			jTAtypeDisplay.setText(objState + " type currently selected ");
-			System.out.println( objState + " selected ");
+			if(Verbose)System.out.println( objState + " selected ");
 			break;
 			
 		case Create:

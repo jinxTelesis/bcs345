@@ -11,14 +11,12 @@ public class driver {
 		Employee emp = new Employee("Dave ", "Likes ", "Carrots");
 		Faculty fac1 = new Faculty("George", "Bill", "Sales", coursearr);
 		// need to test student 
+		Student stu1 = new Student("bil","theBarbarian",'U', coursearr);
 		
-		emp.setFirstName("Jim");
-		fac1.setFirstName("George2");
+		System.out.print("Student object test" + stu1.getFirstName() + " " + stu1.getLastName() + " " + stu1.getMatriculantStatus());
 		
 		
-		System.out.println("Get test" + emp.getFirstName());
-		System.out.println("");
-		System.out.println("Get test fac1" + fac1.getFirstName());
+		
 		
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			

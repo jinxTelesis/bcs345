@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 public class GuiJFrame extends JFrame{
 	
 	public GuiJFrame() {
+		// verbose state
 		GuiJPanel jp = new GuiJPanel(); // the panel in the other file
 		add(jp); // adds the planel
 		//FlowLayout layout = new FlowLayout();
