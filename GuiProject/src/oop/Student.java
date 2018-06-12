@@ -1,9 +1,9 @@
 package oop;
 
-public class Student implements Comparable<Student>{
+public class Student extends Person implements Comparable<Student>{
 
-	private String firstName;
-	private String lastName;
+//	private String firstName;
+//	private String lastName;
 	private static int ID;
 	protected int sID;
 	private char matriculantStatus;
@@ -12,8 +12,9 @@ public class Student implements Comparable<Student>{
 	
 	
 	Student() {
-		this.firstName = "";
-		this.lastName = "";
+		super();
+		//this.firstName = "";
+		//this.lastName = "";
 		ID++;
 		this.sID = ID;
 		this.matriculantStatus = 'U';
@@ -22,14 +23,14 @@ public class Student implements Comparable<Student>{
 	
 	Student(String firstName, String lastName, char matriculantStatus, String[] coursesTaken)
 	{
-		this(); // remember to call this rather than just rebuild default
-		this.firstName = firstName;
-		this.lastName = lastName;
+		super();// remember to call this rather than just rebuild default
+		//this.firstName = firstName;
+		//this.lastName = lastName;
 		this.matriculantStatus = matriculantStatus;
 		this.coursesTaken = coursesTaken;
 		
 	}
-	
+/*	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -45,7 +46,7 @@ public class Student implements Comparable<Student>{
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
+*/
 	public char getMatriculantStatus() {
 		return matriculantStatus;
 	}
@@ -73,8 +74,9 @@ public class Student implements Comparable<Student>{
 	
 	public String toString() {
 		String s = null;// not the best way to do it performance wise
-		s+= "The student's first name is: " + this.firstName + " ";
-		s+= "The student's last name is : " + this.lastName + " ";
+		s+= super.toString();
+		//s+= "The student's first name is: " + this.firstName + " ";
+		//s+= "The student's last name is : " + this.lastName + " ";
 		s+= "The student's id is : " + this.sID + " ";
 		s+= "The student's matriculant status is : " + this.matriculantStatus + " ";
 		for (int i = 0; i < coursesTaken.length;i++)

@@ -10,6 +10,8 @@ public class driver {
 		String[] coursearr= new String[9];
 		Employee emp = new Employee("Dave ", "Likes ", "Carrots");
 		Faculty fac1 = new Faculty("George", "Bill", "Sales", coursearr);
+		// need to test student 
+		
 		emp.setFirstName("Jim");
 		fac1.setFirstName("George2");
 		
