@@ -366,7 +366,7 @@ public class GuiJPanel extends JPanel implements ActionListener{
 						testStr = "Person"; if(Verbose) {// deliberate odd spacing
 						System.out.println(testStr + " update worked " + objState);
 						System.out.println(testStr + "Person update worked " + alterState);}
-						p1[personArrCount] = new Person(tempStrArr[0],tempStrArr[1]);
+						p1[personArrCount] = new Person(tempStrArr[0].replaceAll("null", ""),tempStrArr[1].replaceAll("null", ""));
 
 						//p1[personArrCount].setFirstName(tempStrArr[0]);//.substring(4, tempStrArr[0].length()));
 						//p1[personArrCount].setLastName(tempStrArr[1]);//.substring(4, tempStrArr[0].length()));
