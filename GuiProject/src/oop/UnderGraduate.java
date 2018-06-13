@@ -1,21 +1,22 @@
 package oop;
 
-public class UndergradClass extends Student {
+public class UnderGraduate extends Student {
 	
-	UndergradClass(){
+	
+	UnderGraduate(){
 		super();// need courses only to be U // and status 
 	}
 	
-	UndergradClass(String firstName, String lastName, String[] coursesTaken)
+	UnderGraduate(String firstName, String lastName, String[] coursesTaken, int inputArrLength)
 	{
-		super(firstName,lastName,'U',coursesTaken);
+		super(firstName,lastName,'U',coursesTaken, inputArrLength);
 	}
 	
 	public boolean equals(Object o)
 	{
-		if(o instanceof UndergradClass)
+		if(o instanceof UnderGraduate)
 		{
-			UndergradClass otherS = (UndergradClass)o; // cast
+			UnderGraduate otherS = (UnderGraduate)o; // cast
 			if (super.sID == otherS.sID)// allows name changes, which mirror reality
 			{//student equivlency only based on id
 				return true; 

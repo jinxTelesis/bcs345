@@ -26,11 +26,13 @@ public class driver {
 		gradCourseArr[1] = "G195";
 		gradCourseArr[4] = "G390";
 		
+		UnderGraduate test1 = new UnderGraduate("dept", "time", coursearr, 2);
 		
+		System.out.println(test1.toString());
 		
-		Student stu1 = new Student("bil","theBarbarian",'U', coursearr);
+		//Student stu1 = new Student("bil","theBarbarian",'U', coursearr);
 		
-		System.out.print("Student object test" + stu1.getFirstName() + " " + stu1.getLastName() + " " + stu1.getMatriculantStatus());
+		//System.out.print("Student object test" + stu1.getFirstName() + " " + stu1.getLastName() + " " + stu1.getMatriculantStatus());
 		
 		
 		

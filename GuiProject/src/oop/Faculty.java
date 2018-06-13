@@ -37,6 +37,7 @@ public class Faculty extends Employee{
 			s+= "This faculty teaches " + courseArr[i]; 
 		}
 		
+		s.replaceAll("employee's", "faculty's");
 		return s.replaceAll("null", "");
 	}
 	

@@ -4,13 +4,13 @@ public class Staff extends Employee{
 	// deemed the comparison of objects strange and not useful code for these classes could be done on id number
 	
 	private String[] duties = new String[20];
-	
+	private int arrLength =0;
 	
 	Staff() {
 		super();
 	}
 	
-	Staff(String firstName, String lastName, String deptName, String[] duties)
+	Staff(String firstName, String lastName, String deptName, String[] duties, int arrLength)
 	{
 		super(firstName, lastName, deptName);
 		if (duties.length > 19)
@@ -21,6 +21,7 @@ public class Staff extends Employee{
 		{
 			this.duties = duties;
 		}
+		this.arrLength = arrLength;
 		
 	}
 	
@@ -42,7 +43,7 @@ public class Staff extends Employee{
 	
 	public String toString() { // needs more complete implementation fill count
 		String s = super.toString();
-		for (int i = 0; i < this.duties.length;i++)
+		for (int i = 0; i < this.arrLength;i++)
 		{
 			s+= " The staff has " + duties[i];
 		}
