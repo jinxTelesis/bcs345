@@ -27,6 +27,8 @@ public class Student extends Person implements Comparable<Student>{
 		this.matriculantStatus = matriculantStatus;
 		this.coursesTaken = coursesTaken;
 		
+		System.out.println(coursesTaken.length);
+		
 		for(int i = 0; i < coursesTaken.length;i++)
 		{
 			System.out.println(coursesTaken[i]);
@@ -41,6 +43,7 @@ public class Student extends Person implements Comparable<Student>{
 			}
 			for (int i = 0; i < coursesTaken.length;i++)
 			{
+				if(coursesTaken[i] != null)
 				System.out.print(" " + coursesTaken[i].charAt(0) + " ");
 				if(coursesTaken[i] != null)
 				if(coursesTaken[i].charAt(0) != 'U')
@@ -62,6 +65,7 @@ public class Student extends Person implements Comparable<Student>{
 			}
 			for (int i = 0; i < coursesTaken.length;i++)
 			{
+				if(coursesTaken[i] != null)
 				System.out.print(" " + coursesTaken[i].charAt(0) + " ");
 				if(coursesTaken[i] != null)
 				if(coursesTaken[i].charAt(0) != 'G')
@@ -99,6 +103,7 @@ public class Student extends Person implements Comparable<Student>{
 			}
 			for (int i = 0; i < coursesTaken.length;i++)
 			{
+				if(coursesTaken[i] != null)
 				System.out.print(" " + coursesTaken[i].charAt(0) + " ");
 				if(coursesTaken[i] != null)
 				if(coursesTaken[i].charAt(0) != 'U')
@@ -120,6 +125,7 @@ public class Student extends Person implements Comparable<Student>{
 			}
 			for (int i = 0; i < coursesTaken.length;i++)
 			{
+				if(coursesTaken[i] != null)
 				System.out.print(" " + coursesTaken[i].charAt(0) + " ");
 				if(coursesTaken[i] != null)
 				if(coursesTaken[i].charAt(0) != 'G')

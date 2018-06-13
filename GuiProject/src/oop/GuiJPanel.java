@@ -23,6 +23,8 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.EtchedBorder;
 
+import java.util.Arrays;
+
 // ask about the threading optimization
 // stuff didn't work as expected with third level switch statements
 // grading criteria? any filtering of user input // try exceptions
@@ -93,7 +95,8 @@ public class GuiJPanel extends JPanel implements ActionListener{
 	private String alterState = new String();
 	
 	private String typeDisplay = "\n\n\n\n\n     Type currently \n        selected is";
-	private String selDisplay = "Enter data here one line at a time ";
+	//private String selDisplay = "Enter data here one line at a time ";
+	private String selDisplay;
 	private String instrDIsplay = " ";
 	private String jlFourDis = " ";
 	private String jlFiveDis = " ";
@@ -307,7 +310,7 @@ public class GuiJPanel extends JPanel implements ActionListener{
 					if(alterState.equalsIgnoreCase(" Creating ") && personArrCount < 20) // worked needs output message for past 10
 					{
 						//tempStrArr = getStrFromJTextArea(jTASelectionDisplay);
-						
+						Arrays.fill(tempStrArr, null);
 						String s = jTASelectionDisplay.getText();
 						System.out.println(s);
 						boolean newLine = true;
@@ -315,11 +318,15 @@ public class GuiJPanel extends JPanel implements ActionListener{
 						char ch;
 						for (int i =0; i < s.length();i++)
 						{
+							ch = ' ';
 							ch = s.charAt(i);
 							if(Character.isLetter(ch))
 							{
+								//System.out.println("before:" + tempStrArr[i]);
 								tempStrArr[wordIndex] += ch;
 								newLine = false;
+								System.out.println("after:" + tempStrArr[i]);
+								System.out.println(wordIndex);
 							}
 							else
 							{
@@ -331,11 +338,18 @@ public class GuiJPanel extends JPanel implements ActionListener{
 							}
 							
 						}
-						
+/*						
 						for(int i = 0;i < wordIndex;i++)
 						{
 							tempStrArr[i].replace("null", "");
 						}
+						for(int i = 0;i < wordIndex;i++)
+						{
+							//if(tempStrArr[i] != null);
+							//tempStrArr[i].replace(null, "");
+						}
+*/						
+						
 						s = "";
 						
 						/*javax.swing.SwingUtilities.invokeLater(new Runnable() {
@@ -352,10 +366,10 @@ public class GuiJPanel extends JPanel implements ActionListener{
 						testStr = "Person"; if(Verbose) {// deliberate odd spacing
 						System.out.println(testStr + " update worked " + objState);
 						System.out.println(testStr + "Person update worked " + alterState);}
-						p1[personArrCount] = new Person();
+						p1[personArrCount] = new Person(tempStrArr[0],tempStrArr[1]);
 
-						p1[personArrCount].setFirstName(tempStrArr[0]);
-						p1[personArrCount].setLastName(tempStrArr[1]);
+						//p1[personArrCount].setFirstName(tempStrArr[0]);//.substring(4, tempStrArr[0].length()));
+						//p1[personArrCount].setLastName(tempStrArr[1]);//.substring(4, tempStrArr[0].length()));
 						
 						personArrCount++;
 					}
@@ -417,12 +431,13 @@ public class GuiJPanel extends JPanel implements ActionListener{
 						testStr = "Person";if(Verbose) {
 						System.out.println(testStr + " update worked " + objState);
 						System.out.println(testStr + " update worked " + alterState);}
-						//jlTADisData = testStr + " 's name is: " + p1[personArrCount-1].getFirstName() +" \n ";
-						//jlTADisData += testStr + " 's last name is: " + p1[personArrCount-1].getLastName() + " \n ";
+						jlTADisData = testStr + " 's name is: " + p1[personArrCount-1].getFirstName() +" \n ";
+						jlTADisData += testStr + " 's last name is: " + p1[personArrCount-1].getLastName() + " \n ";
+						
+						jTADisData.setText(jlTADisData);
 						jlTADisData = " ";
-						jTADisData.setText(jlTADisData);
-						jlTADisData += p1[personArrCount-1].toString();
-						jTADisData.setText(jlTADisData);
+						//jlTADisData += p1[personArrCount-1].toString();
+						//jTADisData.setText(jlTADisData);
 					}
 					break;
 
