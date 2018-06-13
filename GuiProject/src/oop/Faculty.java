@@ -27,11 +27,11 @@ public class Faculty extends Employee{
 
 	
 	public String toString() { // needs more complete implementation fill count
-		String s = null;
-		s+= super.toString() +
+		String s = super.toString() +
 				"\n Courses are limited to: " + MAX_NUM_COURSES + " ";
 		for (int i = 0; i < this.courseArr.length;i++)
 		{
+			if(courseArr[i] != "" || courseArr[i] != null);
 			s+= "This faculty teaches " + courseArr[i];
 		}
 		

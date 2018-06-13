@@ -35,8 +35,7 @@ public class Person { // compare not implement does not make sense
 	}
 	
 	public String toString() {
-		String s = new String();
-		s+= "The employee's first name is: " + this.firstName +
+		String s = "The employee's first name is: " + this.firstName +
 		"\n The employee's last name is: " + this.lastName;
 		return s;
 	}

@@ -25,5 +25,11 @@ public class Graduate extends Student{
 		}
 		return false;
 	}
+	
+	public String toString()
+	{
+		String s =super.toString();
+		return s;
+	}
 
 }

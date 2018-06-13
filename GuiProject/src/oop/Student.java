@@ -148,12 +148,13 @@ public class Student extends Person implements Comparable<Student>{
 	}
 	
 	public String toString() {
-		String s = new String(); 
-		s += super.toString();
+		String s = super.toString();
 		//s+= "The student's first name is: " + this.firstName + " ";
 		//s+= "The student's last name is : " + this.lastName + " ";
 		s+= "The student's id is : " + this.sID + " ";
 		s+= "The student's matriculant status is : " + this.matriculantStatus + " ";
+		
+		// this might need work here
 		for (int i = 0; i < coursesTaken.length;i++)
 		{
 			s+= "The student is enrolled in : " + coursesTaken[i] + " ";

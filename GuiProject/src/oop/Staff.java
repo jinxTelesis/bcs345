@@ -41,8 +41,7 @@ public class Staff extends Employee{
 	}
 	
 	public String toString() { // needs more complete implementation fill count
-		String s = null;
-		s+= super.toString();
+		String s = super.toString();
 		for (int i = 0; i < this.duties.length;i++)
 		{
 			s+= " The staff has " + duties[i];

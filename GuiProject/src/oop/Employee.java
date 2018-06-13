@@ -34,8 +34,7 @@ public class Employee extends Person implements Comparable<Employee> {
 	
 	public String toString()
 	{
-		String s = null;
-		s+= super.toString() +
+		String s = super.toString() +
 		"\n The employee works for the: " + this.deptName + " department " +
 		"\n The employee's id is : " + this.eID;
 		
