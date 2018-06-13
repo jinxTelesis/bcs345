@@ -24,8 +24,9 @@ public class Faculty extends Employee{
 		return courseArr;
 	}
 
-	public void setCourseArr(String[] courseArr) {
+	public void setCourseArr(String[] courseArr, int arrLength) {
 		this.courseArr = courseArr;
+		this.arrLength = arrLength;
 	}
 
 	

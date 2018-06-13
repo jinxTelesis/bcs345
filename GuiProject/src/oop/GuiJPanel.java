@@ -344,6 +344,8 @@ public class GuiJPanel extends JPanel implements ActionListener{
 						System.out.println(testStr + " update worked " + alterState);}
 						
 						String s = jTASelectionDisplay.getText();
+						
+						String[] tempStrArrfPer = new String[15];
 						boolean newLine = true;
 						int wordIndex = 0;
 						char ch;
@@ -352,7 +354,7 @@ public class GuiJPanel extends JPanel implements ActionListener{
 							ch = s.charAt(i);
 							if(Character.isLetter(ch))
 							{
-								tempStrArr[wordIndex] += ch;
+								tempStrArrfPer[wordIndex] += ch;
 								newLine = false;
 							}
 							else
@@ -369,11 +371,11 @@ public class GuiJPanel extends JPanel implements ActionListener{
 						
 						for(int i = 0;i < wordIndex;i++)
 						{
-							tempStrArr[i].replace("null", "");
+							tempStrArrfPer[i].replace("null", "");
 						}
 						
-						p1[personArrCount-1].setFirstName(tempStrArr[0]);
-						p1[personArrCount-1].setLastName(tempStrArr[1]);
+						p1[personArrCount-1].setFirstName(tempStrArrfPer[0]);
+						p1[personArrCount-1].setLastName(tempStrArrfPer[1]);
 					}
 					
 					if(alterState.equals(" Displaying ") && personArrCount > 0)
@@ -421,6 +423,7 @@ public class GuiJPanel extends JPanel implements ActionListener{
 						System.out.println(testStr + " update worked " + objState);
 						System.out.println(testStr + " update worked " + alterState);}
 						
+						String[] tempStrArrfEMP = new String[15];
 						String s = jTASelectionDisplay.getText();
 						boolean newLine = true;
 						int wordIndex = 0;
@@ -430,7 +433,7 @@ public class GuiJPanel extends JPanel implements ActionListener{
 							ch = s.charAt(i);
 							if(Character.isLetter(ch))
 							{
-								tempStrArr[wordIndex] += ch;
+								tempStrArrfEMP[wordIndex] += ch;
 								newLine = false;
 							}
 							else
@@ -450,9 +453,9 @@ public class GuiJPanel extends JPanel implements ActionListener{
 							tempStrArr[i].replace("null", "");
 						}
 						
-						e1[employeeArrCount-1].setFirstName(tempStrArr[0]);
-						e1[employeeArrCount-1].setLastName(tempStrArr[1]);
-						e1[employeeArrCount-1].setDeptName(tempStrArr[2]);
+						e1[employeeArrCount-1].setFirstName(tempStrArrfEMP[0]);
+						e1[employeeArrCount-1].setLastName(tempStrArrfEMP[1]);
+						e1[employeeArrCount-1].setDeptName(tempStrArrfEMP[2]);
 					}
 					
 					if(alterState.equals(" Displaying ") && employeeArrCount > 0)
@@ -492,20 +495,19 @@ public class GuiJPanel extends JPanel implements ActionListener{
 					
 					if(alterState.equalsIgnoreCase(" Updating ") && facultyArrCount > 0)
 					{
-						testStr = "Faculty";if(Verbose) {
-						System.out.println(testStr + " update worked " + objState);
-						System.out.println(testStr + " update worked " + alterState);}
 						
+						String[] tempStrArrf = new String[15];
 						String s = jTASelectionDisplay.getText();
 						boolean newLine = true;
 						int wordIndex = 0;
 						char ch;
 						for (int i =0; i < s.length();i++)
 						{
+							ch = ' ';
 							ch = s.charAt(i);
 							if(Character.isLetter(ch))
 							{
-								tempStrArr[wordIndex] += ch;
+								tempStrArrf[wordIndex] += ch;
 								newLine = false;
 							}
 							else
@@ -516,40 +518,26 @@ public class GuiJPanel extends JPanel implements ActionListener{
 									newLine = true;
 								}
 							}
-							
 						}
-						s ="";
-						
-						for(int i = 0;i < wordIndex;i++)
-						{
-							tempStrArr[i].replace("null", "");
-						}
+
 						String courseArr[] = new String[9];
 						
-						for(int i = 3; i <courseArr.length;i++)
+						for(int i = 3; i <wordIndex;i++)
 						{
-							courseArr[i] = tempStrArr[i];
+							courseArr[i] = tempStrArrf[i].replaceAll("null", "");
 						}
 						
-						f1[facultyArrCount-1].setFirstName(tempStrArr[0]);
-						f1[facultyArrCount-1].setLastName(tempStrArr[1]);
-						f1[facultyArrCount-1].setDeptName(tempStrArr[2]);
-						f1[facultyArrCount-1].setCourseArr(courseArr);
+						f1[facultyArrCount-1].setFirstName(tempStrArrf[0].replaceAll("null", ""));
+						f1[facultyArrCount-1].setLastName(tempStrArrf[1].replaceAll("null", ""));
+						f1[facultyArrCount-1].setDeptName(tempStrArrf[2].replaceAll("null", ""));
+						f1[facultyArrCount-1].setCourseArr(courseArr, wordIndex);
 						
 					}
 					
 					if(alterState.equals(" Displaying ") && facultyArrCount> 0)
 					{
-						testStr = "Faculty";if(Verbose) {
-						System.out.println(testStr + " update worked " + objState);
-						System.out.println(testStr + " update worked " + alterState);}
-						
-						
-						
 						jlTADisData = " ";
 						jTADisData.setText(jlTADisData);
-						//jlTADisData = f1[facultyArrCount-1].getFirstName();
-						//jTADisData.setText(jlTADisData);
 						
 						jlTADisData += f1[facultyArrCount - 1].toString(); 
 						jTADisData.setText(jlTADisData);
@@ -579,49 +567,42 @@ public class GuiJPanel extends JPanel implements ActionListener{
 					
 					if(alterState.equalsIgnoreCase(" Updating ") && staffArrCount > 0)
 					{
-						testStr = "Staff";if(Verbose) {
-						System.out.println(testStr + " update worked " + objState);
-						System.out.println(testStr + " update worked " + alterState);}
-						
-						String s = jTASelectionDisplay.getText();
-						boolean newLine = true;
-						int wordIndex = 0;
-						char ch;
-						for (int i =0; i < s.length();i++)
-						{
-							ch = s.charAt(i);
-							if(Character.isLetter(ch))
+							String[] tempStrArrStaff = new String[15];
+							String s = jTASelectionDisplay.getText();
+							boolean newLine = true;
+							int wordIndex = 0;
+							char ch;
+							for (int i =0; i < s.length();i++)
 							{
-								tempStrArr[wordIndex] += ch;
-								newLine = false;
-							}
-							else
-							{
-								if (newLine == false)
+								ch = ' ';
+								ch = s.charAt(i);
+								if(Character.isLetter(ch))
 								{
-									wordIndex++;
-									newLine = true;
+									tempStrArrStaff[wordIndex] += ch;
+									newLine = false;
+								}
+								else
+								{
+									if (newLine == false)
+									{
+										wordIndex++;
+										newLine = true;
+									}
 								}
 							}
+
+							String dutiesArr[] = new String[9];
 							
-						}
-						s ="";
+							for(int i = 3; i <wordIndex;i++)
+							{
+								dutiesArr[i] = tempStrArrStaff[i].replaceAll("null", "");
+							}
+							
 						
-						for(int i = 0;i < wordIndex;i++)
-						{
-							tempStrArr[i].replace("null", "");
-						}
-						String courseArr[] = new String[9];
-						
-						for(int i = 3; i <courseArr.length;i++)
-						{
-							courseArr[i] = tempStrArr[i];
-						}
-						
-						st1[staffArrCount-1].setFirstName(tempStrArr[0]);
-						st1[staffArrCount-1].setLastName(tempStrArr[1]);
-						st1[staffArrCount-1].setDeptName(tempStrArr[2]);
-						st1[staffArrCount-1].setDuties(courseArr);
+						st1[staffArrCount-1].setFirstName(tempStrArrStaff[0].replaceAll("null", ""));
+						st1[staffArrCount-1].setLastName(tempStrArrStaff[1].replaceAll("null", ""));
+						st1[staffArrCount-1].setDeptName(tempStrArrStaff[2].replaceAll("null", ""));
+						st1[staffArrCount-1].setDuties(dutiesArr, wordIndex);
 					}
 					
 					if(alterState.equals(" Displaying ") && staffArrCount> 0)
@@ -661,20 +642,18 @@ public class GuiJPanel extends JPanel implements ActionListener{
 					
 					if(alterState.equalsIgnoreCase(" Updating ") && studentArrCount > 0)
 					{
-						testStr = "Student";if(Verbose) {
-						System.out.println(testStr + " update worked " + objState);
-						System.out.println(testStr + " update worked " + alterState);}
-						
+						String[] tempStrArrSTU = new String[15];
 						String s = jTASelectionDisplay.getText();
 						boolean newLine = true;
 						int wordIndex = 0;
 						char ch;
 						for (int i =0; i < s.length();i++)
 						{
+							ch = ' ';
 							ch = s.charAt(i);
 							if(Character.isLetter(ch))
 							{
-								tempStrArr[wordIndex] += ch;
+								tempStrArrSTU[wordIndex] += ch;
 								newLine = false;
 							}
 							else
@@ -685,25 +664,19 @@ public class GuiJPanel extends JPanel implements ActionListener{
 									newLine = true;
 								}
 							}
-							
 						}
-						s ="";
-						
-						for(int i = 0;i < wordIndex;i++)
-						{
-							tempStrArr[i].replace("null", "");
-						}
+
 						String courseArr[] = new String[9];
 						
-						for(int i = 3; i <courseArr.length;i++)
+						for(int i = 3; i <wordIndex;i++)
 						{
-							courseArr[i] = tempStrArr[i];
+							courseArr[i] = tempStrArrSTU[i].replaceAll("null", "");
 						}
 						
-						s1[studentArrCount-1].setFirstName(tempStrArr[0]);
-						s1[studentArrCount-1].setLastName(tempStrArr[1]);
-						s1[studentArrCount-1].setMatriculantStatus(tempStrArr[2].charAt(0));
-						s1[studentArrCount-1].setCoursesTaken(courseArr);
+						s1[studentArrCount-1].setFirstName(tempStrArrSTU[0]);
+						s1[studentArrCount-1].setLastName(tempStrArrSTU[1]);
+						s1[studentArrCount-1].setMatriculantStatus(tempStrArrSTU[2].charAt(0));
+						s1[studentArrCount-1].setCoursesTaken(courseArr, wordIndex);
 					}
 					
 					if(alterState.equals(" Displaying ") && studentArrCount> 0)
@@ -718,10 +691,9 @@ public class GuiJPanel extends JPanel implements ActionListener{
 						jlTADisData += s1[studentArrCount-1].toString();
 						jTADisData.setText(jlTADisData);
 					}
-					
-				break;
-				
-			case Undergraduate: // could just pass this all to a constructor... 
+					break;
+			
+				case Undergraduate: // could just pass this all to a constructor... 
 					
 					if(alterState.equalsIgnoreCase(" Creating ") && underArrCount < 20) // worked needs output message for past 10
 					{
@@ -744,21 +716,18 @@ public class GuiJPanel extends JPanel implements ActionListener{
 					
 					if(alterState.equalsIgnoreCase(" Updating ") && underArrCount > 0)
 					{
-						System.out.println("bdafssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss\ndasf\ndsafffffffff\n");
-						testStr = "Undergraduate";if(Verbose) {
-						System.out.println(testStr + " update worked " + objState);
-						System.out.println(testStr + " update worked " + alterState);}
-						
+						String[] tempStrArrTen = new String[15];
 						String s = jTASelectionDisplay.getText();
 						boolean newLine = true;
 						int wordIndex = 0;
 						char ch;
 						for (int i =0; i < s.length();i++)
 						{
+							ch = ' ';
 							ch = s.charAt(i);
 							if(Character.isLetter(ch))
 							{
-								tempStrArr[wordIndex] += ch;
+								tempStrArrTen[wordIndex] += ch;
 								newLine = false;
 							}
 							else
@@ -769,25 +738,19 @@ public class GuiJPanel extends JPanel implements ActionListener{
 									newLine = true;
 								}
 							}
-							
 						}
-						s ="";
-						
-						for(int i = 0;i < wordIndex;i++)
-						{
-							tempStrArr[i].replace("null", "");
-						}
+
 						String courseArr[] = new String[9];
 						
-						for(int i = 2; i <courseArr.length;i++)
+						for(int i = 3; i <wordIndex;i++)
 						{
-							courseArr[i] = tempStrArr[i];
+							courseArr[i] = tempStrArrTen[i].replaceAll("null", "");
 						}
 
 						
-						u1[underArrCount-1].setFirstName(tempStrArr[0]);
-						u1[underArrCount-1].setLastName(tempStrArr[1]);
-						u1[underArrCount-1].setCoursesTaken(courseArr);
+						u1[underArrCount-1].setFirstName(tempStrArrTen[0]);
+						u1[underArrCount-1].setLastName(tempStrArrTen[1]);
+						u1[underArrCount-1].setCoursesTaken(courseArr, wordIndex);
 					}
 					
 					if(alterState.equals(" Displaying ") && underArrCount> 0)
@@ -805,43 +768,37 @@ public class GuiJPanel extends JPanel implements ActionListener{
 					}
 					
 					break;
-					
-					
-					// here
+
 				case Graduate:
 					if(alterState.equalsIgnoreCase(" Creating ") && gradeArrCount < 20) // worked needs output message for past 10
 					{
-						//System.out.println("Blue Blue Blue");
 						createGra();
 						gradeArrCount++;						
 					}
 					
 					if(alterState.equalsIgnoreCase(" Removing ") && gradeArrCount > 0)
 					{
-						testStr = "Undergraduate";if(Verbose) {
-						System.out.println(testStr + " update worked " + objState);
-						System.out.println(testStr + " update worked " + alterState);}
+
 						g1[gradeArrCount-1].setFirstName(" ");
 						g1[gradeArrCount-1].setLastName(" ");
 						gradeArrCount--;
+						g1[gradeArrCount-1] = null;
 					}
 					
 					if(alterState.equalsIgnoreCase(" Updating ") && gradeArrCount > 0)
 					{
-						testStr = "Undergraduate";if(Verbose) {
-						System.out.println(testStr + " update worked " + objState);
-						System.out.println(testStr + " update worked " + alterState);}
-						
+						String[] tempStrArrUnder = new String[15];
 						String s = jTASelectionDisplay.getText();
 						boolean newLine = true;
 						int wordIndex = 0;
 						char ch;
 						for (int i =0; i < s.length();i++)
 						{
+							ch = ' ';
 							ch = s.charAt(i);
 							if(Character.isLetter(ch))
 							{
-								tempStrArr[wordIndex] += ch;
+								tempStrArrUnder[wordIndex] += ch;
 								newLine = false;
 							}
 							else
@@ -852,26 +809,20 @@ public class GuiJPanel extends JPanel implements ActionListener{
 									newLine = true;
 								}
 							}
-							
 						}
-						s ="";
-						
-						for(int i = 0;i < wordIndex;i++)
-						{
-							tempStrArr[i].replace("null", "");
-						}
+
 						String courseArr[] = new String[9];
 						
-						for(int i = 2; i <courseArr.length;i++)
+						for(int i = 3; i <wordIndex;i++)
 						{
-							courseArr[i] = tempStrArr[i];
+							courseArr[i] = tempStrArrUnder[i].replaceAll("null", "");
 						}
 						
 						//Graduate(String firstName, String lastName, String[] coursesTaken)
 						
-						g1[gradeArrCount-1].setFirstName(tempStrArr[0]);
-						g1[gradeArrCount-1].setLastName(tempStrArr[1]);
-						g1[gradeArrCount-1].setCoursesTaken(courseArr);
+						g1[gradeArrCount-1].setFirstName(tempStrArrUnder[0].replaceAll("null", ""));
+						g1[gradeArrCount-1].setLastName(tempStrArrUnder[1].replaceAll("null", ""));
+						g1[gradeArrCount-1].setCoursesTaken(courseArr, wordIndex);
 					}
 					
 					if(alterState.equals(" Displaying ") && gradeArrCount> 0)

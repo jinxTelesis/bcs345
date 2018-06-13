@@ -25,8 +25,10 @@ public class Staff extends Employee{
 		
 	}
 	
-	public void setDuties(String[] duties)
+	public void setDuties(String[] duties, int arrLength)
 	{
+		this.arrLength = arrLength;
+		
 		if (duties.length > 19)
 		{
 			System.out.println("duties array has to be less than 20 items");

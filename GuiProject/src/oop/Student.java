@@ -103,9 +103,10 @@ public class Student extends Person implements Comparable<Student>{
 		return coursesTaken;
 	}
 
-	public void setCoursesTaken(String[] coursesTaken) {
+	public void setCoursesTaken(String[] coursesTaken, int arrLength) {
 		
 		this.coursesTaken = coursesTaken;
+		this.arrLength = arrLength;
 		
 		if(this.matriculantStatus == 'U' || this.matriculantStatus == 'u')
 		{
