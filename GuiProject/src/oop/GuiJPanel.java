@@ -309,69 +309,19 @@ public class GuiJPanel extends JPanel implements ActionListener{
 				case Person:
 					if(alterState.equalsIgnoreCase(" Creating ") && personArrCount < 20) // worked needs output message for past 10
 					{
-						//tempStrArr = getStrFromJTextArea(jTASelectionDisplay);
-						Arrays.fill(tempStrArr, null);
-						String s = jTASelectionDisplay.getText();
-						System.out.println(s);
-						boolean newLine = true;
-						int wordIndex = 0;
-						char ch;
-						for (int i =0; i < s.length();i++)
-						{
-							ch = ' ';
-							ch = s.charAt(i);
-							if(Character.isLetter(ch))
-							{
-								//System.out.println("before:" + tempStrArr[i]);
-								tempStrArr[wordIndex] += ch;
-								newLine = false;
-								System.out.println("after:" + tempStrArr[i]);
-								System.out.println(wordIndex);
-							}
-							else
-							{
-								if (newLine == false)
-								{
-									wordIndex++;
-									newLine = true;
-								}
-							}
-							
-						}
-/*						
-						for(int i = 0;i < wordIndex;i++)
-						{
-							tempStrArr[i].replace("null", "");
-						}
-						for(int i = 0;i < wordIndex;i++)
-						{
-							//if(tempStrArr[i] != null);
-							//tempStrArr[i].replace(null, "");
-						}
-*/						
+						personArrCount += createPer();
 						
-						s = "";
-						
-						/*javax.swing.SwingUtilities.invokeLater(new Runnable() {
-							
-							@Override
-							public void run() {
-							FormJFrame formJFrame1 = new FormJFrame();
-							formJFrame1.setVisible(true);
-							formJFrame1.setSize(600, 600);
-							formJFrame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-							}
-							});*/
-						// Main Form to show after the Login Form..
-						testStr = "Person"; if(Verbose) {// deliberate odd spacing
-						System.out.println(testStr + " update worked " + objState);
-						System.out.println(testStr + "Person update worked " + alterState);}
-						p1[personArrCount] = new Person(tempStrArr[0].replaceAll("null", ""),tempStrArr[1].replaceAll("null", ""));
-
-						//p1[personArrCount].setFirstName(tempStrArr[0]);//.substring(4, tempStrArr[0].length()));
-						//p1[personArrCount].setLastName(tempStrArr[1]);//.substring(4, tempStrArr[0].length()));
-						
-						personArrCount++;
+//						/*javax.swing.SwingUtilities.invokeLater(new Runnable() {
+//							
+//							@Override
+//							public void run() {
+//							FormJFrame formJFrame1 = new FormJFrame();
+//							formJFrame1.setVisible(true);
+//							formJFrame1.setSize(600, 600);
+//							formJFrame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//							}
+//							});*/
+//						
 					}
 					
 					if(alterState.equalsIgnoreCase(" Removing ") && personArrCount > 0)
@@ -1170,22 +1120,27 @@ public class GuiJPanel extends JPanel implements ActionListener{
 		
 	}
 
-	// can prob remove
-	public String[] getStrFromJTextArea(JTextArea jTASelectionDisplay) {
+	public int createPer() {
+		int PersonArrIncrement =0; // not really needed to reminds me to use correctly
+		PersonArrIncrement++;
+		String[] tempStrArr = new String[15];
+		
 		String s = jTASelectionDisplay.getText();
+		//System.out.println(s);
 		boolean newLine = true;
-		//System.out.println(s);
-		//s.replace("null", "");
-		//System.out.println(s);
 		int wordIndex = 0;
 		char ch;
 		for (int i =0; i < s.length();i++)
 		{
+			ch = ' ';
 			ch = s.charAt(i);
 			if(Character.isLetter(ch))
 			{
+				//System.out.println("before:" + tempStrArr[i]);
 				tempStrArr[wordIndex] += ch;
 				newLine = false;
+				System.out.println("after:" + tempStrArr[i]);
+				System.out.println(wordIndex);
 			}
 			else
 			{
@@ -1197,20 +1152,13 @@ public class GuiJPanel extends JPanel implements ActionListener{
 			}
 			
 		}
+			
 		
-		for (int i = 0; i < wordIndex;i++)
-		{
-			System.out.println(tempStrArr[i].replace("null", ""));
-		} // assuming user always enters a number wrapper class!?
+		s = "";
+
+		p1[personArrCount] = new Person(tempStrArr[0].replaceAll("null", ""),tempStrArr[1].replaceAll("null", ""));
 		
-		for(int i = 0; i < wordIndex;i++)
-		{
-			tempStrArr[i].replace("null", "");
-		}
-		
-		return tempStrArr;
-		
-		
+		return PersonArrIncrement;
 	}
 	
 	//inner class nested class for textfields
