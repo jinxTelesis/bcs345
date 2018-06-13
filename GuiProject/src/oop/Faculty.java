@@ -4,17 +4,20 @@ public class Faculty extends Employee{
 	// deemed the comparison of objects strange and not useful code for these classes, could be done on the id num
 	public static final int MAX_NUM_COURSES = 10;
 	private String courseArr[] = new String[9];
+	private int arrLength =0;
 	
 
 	Faculty() {
 		super();
 	}
 	
-	Faculty(String firstName, String lastName, String deptName, String[] courseArr)
+	Faculty(String firstName, String lastName, String deptName, String[] courseArr, int arrLength)
 	{
 		// should put more logic in here
 		super(firstName, lastName, deptName);
 		this.courseArr = courseArr;
+		System.out.println("Fac object created");
+		this.arrLength = arrLength;
 	}
 	
 	public String[] getCourseArr() {
@@ -29,13 +32,12 @@ public class Faculty extends Employee{
 	public String toString() { // needs more complete implementation fill count
 		String s = super.toString() +
 				"\n Courses are limited to: " + MAX_NUM_COURSES + " ";
-		for (int i = 0; i < this.courseArr.length;i++)
+		for (int i = 0; i < this.arrLength;i++)
 		{
-			if(courseArr[i] != "" || courseArr[i] != null);
-			s+= "This faculty teaches " + courseArr[i];
+			s+= "This faculty teaches " + courseArr[i]; 
 		}
 		
-		return s;
+		return s.replaceAll("null", "");
 	}
 	
 	public boolean equals(Object o) // sorta proud got on first try

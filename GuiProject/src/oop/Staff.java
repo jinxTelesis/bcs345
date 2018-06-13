@@ -47,7 +47,7 @@ public class Staff extends Employee{
 			s+= " The staff has " + duties[i];
 		}
 		
-		return s;
+		return s.replaceAll("null", "");
 	}
 	
 	public boolean equals(Object o) // sorta proud got on first try

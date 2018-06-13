@@ -38,7 +38,7 @@ public class Employee extends Person implements Comparable<Employee> {
 		"\n The employee works for the: " + this.deptName + " department " +
 		"\n The employee's id is : " + this.eID;
 		
-	return s;
+	return s.replaceAll("null", "");
 	}
 
 	public boolean equals(Object o)

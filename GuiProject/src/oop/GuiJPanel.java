@@ -616,9 +616,15 @@ public class GuiJPanel extends JPanel implements ActionListener{
 						testStr = "Faculty";if(Verbose) {
 						System.out.println(testStr + " update worked " + objState);
 						System.out.println(testStr + " update worked " + alterState);}
+						
+						
+						
 						jlTADisData = " ";
 						jTADisData.setText(jlTADisData);
-						jlTADisData += f1[facultyArrCount-1].toString();
+						//jlTADisData = f1[facultyArrCount-1].getFirstName();
+						//jTADisData.setText(jlTADisData);
+						
+						jlTADisData += f1[facultyArrCount - 1].toString();
 						jTADisData.setText(jlTADisData);
 					}
 					break;
@@ -1229,6 +1235,6 @@ public class GuiJPanel extends JPanel implements ActionListener{
 
 		//courseArr[0] = tempStrArr[0].replaceAll("null", "");
 
-		f1[facultyArrCount] = new Faculty(tempStrArr[0].replaceAll("null", ""), tempStrArr[1].replaceAll("null", ""), tempStrArr[2].replaceAll("null", ""),courseArr);
+		f1[facultyArrCount] = new Faculty(tempStrArr[0].replaceAll("null", ""), tempStrArr[1].replaceAll("null", ""), tempStrArr[2].replaceAll("null", ""),courseArr, wordIndex);
 	}
 }

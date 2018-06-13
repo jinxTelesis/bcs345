@@ -29,7 +29,7 @@ public class Graduate extends Student{
 	public String toString()
 	{
 		String s =super.toString();
-		return s;
+		return s.replaceAll("null", "");
 	}
 
 }

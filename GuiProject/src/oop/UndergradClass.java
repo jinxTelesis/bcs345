@@ -26,7 +26,7 @@ public class UndergradClass extends Student {
 	
 	public String toString() {
 		String s = super.toString();
-		return s;
+		return s.replaceAll("null", "");
 	}
 	
 

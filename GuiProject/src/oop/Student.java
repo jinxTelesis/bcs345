@@ -160,7 +160,7 @@ public class Student extends Person implements Comparable<Student>{
 			s+= "The student is enrolled in : " + coursesTaken[i] + " ";
 		}
 		
-		return s;
+		return s.replaceAll("null", "");
 	}
 	
 	public boolean equals(Object o)
