@@ -309,8 +309,8 @@ public class GuiJPanel extends JPanel implements ActionListener{
 				case Person:
 					if(alterState.equalsIgnoreCase(" Creating ") && personArrCount < 20) // worked needs output message for past 10
 					{
-						personArrCount += createPer();
-						
+						createPer();
+						personArrCount++;
 //						/*javax.swing.SwingUtilities.invokeLater(new Runnable() {
 //							
 //							@Override
@@ -381,13 +381,15 @@ public class GuiJPanel extends JPanel implements ActionListener{
 						testStr = "Person";if(Verbose) {
 						System.out.println(testStr + " update worked " + objState);
 						System.out.println(testStr + " update worked " + alterState);}
-						jlTADisData = testStr + " 's name is: " + p1[personArrCount-1].getFirstName() +" \n ";
-						jlTADisData += testStr + " 's last name is: " + p1[personArrCount-1].getLastName() + " \n ";
+						//jlTADisData = testStr + " 's name is: " + p1[personArrCount-1].getFirstName() +" \n ";
+						//jlTADisData += testStr + " 's last name is: " + p1[personArrCount-1].getLastName() + " \n ";
 						
-						jTADisData.setText(jlTADisData);
 						jlTADisData = " ";
-						//jlTADisData += p1[personArrCount-1].toString();
-						//jTADisData.setText(jlTADisData);
+						jTADisData.setText(jlTADisData);
+						
+						System.out.println("this is count number " + personArrCount);
+						jlTADisData += p1[personArrCount-1].toString();
+						jTADisData.setText(jlTADisData);
 					}
 					break;
 
@@ -1120,13 +1122,10 @@ public class GuiJPanel extends JPanel implements ActionListener{
 		
 	}
 
-	public int createPer() {
-		int PersonArrIncrement =0; // not really needed to reminds me to use correctly
-		PersonArrIncrement++;
-		String[] tempStrArr = new String[15];
+	public void createPer() {
 		
+		String[] tempStrArr = new String[15];
 		String s = jTASelectionDisplay.getText();
-		//System.out.println(s);
 		boolean newLine = true;
 		int wordIndex = 0;
 		char ch;
@@ -1136,11 +1135,8 @@ public class GuiJPanel extends JPanel implements ActionListener{
 			ch = s.charAt(i);
 			if(Character.isLetter(ch))
 			{
-				//System.out.println("before:" + tempStrArr[i]);
 				tempStrArr[wordIndex] += ch;
 				newLine = false;
-				System.out.println("after:" + tempStrArr[i]);
-				System.out.println(wordIndex);
 			}
 			else
 			{
@@ -1150,19 +1146,39 @@ public class GuiJPanel extends JPanel implements ActionListener{
 					newLine = true;
 				}
 			}
-			
 		}
-			
-		
-		s = "";
-
 		p1[personArrCount] = new Person(tempStrArr[0].replaceAll("null", ""),tempStrArr[1].replaceAll("null", ""));
-		
-		return PersonArrIncrement;
 	}
 	
-	//inner class nested class for textfields
-	
-	//nested class for jbuttons
-
+	public int createEmp()
+	{
+		int PersonArrIncrement =0; // not really needed to reminds me to use correctly
+		PersonArrIncrement++;
+		String[] tempStrArr = new String[15];
+		String s = jTASelectionDisplay.getText();
+		boolean newLine = true;
+		int wordIndex = 0;
+		char ch;
+		for (int i =0; i < s.length();i++)
+		{
+			ch = ' ';
+			ch = s.charAt(i);
+			if(Character.isLetter(ch))
+			{
+				tempStrArr[wordIndex] += ch;
+				newLine = false;
+			}
+			else
+			{
+				if (newLine == false)
+				{
+					wordIndex++;
+					newLine = true;
+				}
+			}
+		}
+		s = "";
+		p1[personArrCount] = new Person(tempStrArr[0].replaceAll("null", ""),tempStrArr[1].replaceAll("null", ""));
+		return PersonArrIncrement;
+	}
 }
