@@ -16,7 +16,7 @@ public class Faculty extends Employee{
 		// should put more logic in here
 		super(firstName, lastName, deptName);
 		this.courseArr = courseArr;
-		System.out.println("Fac object created");
+		//System.out.println("Fac object created");
 		this.arrLength = arrLength;
 	}
 	

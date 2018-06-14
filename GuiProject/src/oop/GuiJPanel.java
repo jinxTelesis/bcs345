@@ -59,16 +59,24 @@ public class GuiJPanel extends JPanel implements ActionListener{
 	public static final String Display = "Display";
 	public static final String Enter = "Enter";
 	
+	public static final String jbCycDisStr = "Traverse Object Index";
+	
+	
+	
 	private JLabel jlOne, jlTwo, jlThree,jlFour,jlFive, jlSelect;
 	private JButton jbPer,jbEmp,jbFac,jbSta,jbStu,jbUnd,jbGra;  // could use enums here
 	private JButton jbCreate, jbRemove, jbUpdate, jbDisplay;// could use enums here
 	private JButton jbEnter;
+	
+	private JButton jbCycleDisplay;
+	
 	private static final int NUM_COLUMNS = 10;
 	
 	private JTextArea jTAtypeDisplay;
 	private JTextArea jTASelectionDisplay;
 	private JTextArea jTADisData;
 	private JTextArea jTAInstructions;
+	private JTextArea jTAPrimaryInstr;
 	public Scanner scan = new Scanner(System.in);
 	public String UserInput = "";
 	
@@ -96,11 +104,14 @@ public class GuiJPanel extends JPanel implements ActionListener{
 	
 	private String typeDisplay = "\n\n\n\n\n     Type currently \n        selected is";
 	//private String selDisplay = "Enter data here one line at a time ";
-	private String selDisplay;
+	private String selDisplay = " Enter text here (delete this)";
 	private String instrDIsplay = " ";
 	private String jlFourDis = " ";
 	private String jlFiveDis = " ";
 	private String jlTADisData = " ";
+	private String jlTAPrimaryInstructionString = " First Select a type \n If creating or updating \n enter text seperated \n word"
+			+ " by word with return \n in the bottom center panel \n second select the operation \n create, remove, update \n or display \n"
+			+ "lastly hit enter ";
 	
 	public GuiJPanel() {
 		// from java documentation
@@ -137,9 +148,15 @@ public class GuiJPanel extends JPanel implements ActionListener{
 		jTAInstructions.setBorder(loweredbevel);
 		jTADisData.setEditable(false);
 		
+		jTAPrimaryInstr = new JTextArea(jlTAPrimaryInstructionString,5,5);
+		jTAPrimaryInstr.setLineWrap(true);
+		jTAPrimaryInstr.setWrapStyleWord(true);
+		jTAPrimaryInstr.setBorder(loweredbevel);
+		jTAPrimaryInstr.setEditable(false);
+		
 		// add highlight for the data type
 		add(jlThree);
-		add(jlFour);
+		add(jTAPrimaryInstr);
 		add(jlFive);
 		jbPer = new JButton(Person);
 		jbEmp = new JButton(Employee);
@@ -172,6 +189,7 @@ public class GuiJPanel extends JPanel implements ActionListener{
 		add(jTAInstructions);
 		add(jTASelectionDisplay);
 		add(jTADisData);
+		
 		
 		jbPer.addActionListener(this);
 		jbEmp.addActionListener(this);
