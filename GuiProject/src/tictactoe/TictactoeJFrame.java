@@ -4,12 +4,12 @@ import java.awt.GridLayout;
 
 import javax.swing.JFrame;
 
-public class tictactoeJFrame extends JFrame {
+public class TictactoeJFrame extends JFrame {
 	
-	public tictactoeJFrame() {
-		tictactoeJPanel baseJPanel = new tictactoeJPanel();
+	public TictactoeJFrame() {
+		TictactoeJPanel baseJPanel = new TictactoeJPanel();
 		add(baseJPanel);
-		GridLayout layout = new GridLayout(3,4);
+		GridLayout layout = new GridLayout(0,4);
         baseJPanel.setLayout(layout);
         setResizable(false);
 	}
