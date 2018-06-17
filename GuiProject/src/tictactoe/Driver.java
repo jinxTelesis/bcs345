@@ -11,7 +11,8 @@ public class Driver {
 		{
 		TictactoeJFrame frame = new TictactoeJFrame();
 		frame.setVisible(true);
-		frame.setSize(850, 850);
+		frame.setSize(700, 600);
+		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			
 			

@@ -9,7 +9,7 @@ public class TictactoeJFrame extends JFrame {
 	public TictactoeJFrame() {
 		TictactoeJPanel baseJPanel = new TictactoeJPanel();
 		add(baseJPanel);
-		GridLayout layout = new GridLayout(0,4);
+		GridLayout layout = new GridLayout(0,3);
         baseJPanel.setLayout(layout);
         setResizable(false);
 	}
