@@ -25,7 +25,7 @@ public class TictactoeJPanel extends JPanel implements ActionListener{
 		// got this from java documentation
 	String playerState = "";
 	private boolean[] bClicked = { false,false,false,false,false,false,false,false,false};
-	private String[] winner = new String[3]; // could put buttons in an array
+	private String[] winner = new String[9]; // could put buttons in an array
 	private String Xstr = "   X  ";
 	private String Ostr = "   O  ";
 	private JTextArea jtABlank;
@@ -56,6 +56,17 @@ public class TictactoeJPanel extends JPanel implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		int win = 0;
+		win = checkWinner(winner);
+		if(win == 1)
+		{
+			System.out.println("Player one won");
+		}
+		else
+		{
+			System.out.println("Player two won");
+		}
+		
 		if(e.getActionCommand() == Actions.Button00.name())
 		{
 			//System.out.println("but 00");
@@ -252,16 +263,64 @@ public class TictactoeJPanel extends JPanel implements ActionListener{
 		}
 		
 	}
-	public void checkWinner(String[] winner) {
+	public int checkWinner(String[] winner) {
+		int pOneWin =0;
+		int pTwoWin =0;
+		
+		if (jb00.getText() != null)
 		winner[0] = jb00.getText();
+		System.out.println(jb00.getText());
+		
+		if (jb01.getText() != null)
 		winner[1] = jb01.getText();
+		System.out.println(jb01.getText());
+		
+		if (jb02.getText() != null)
 		winner[2] = jb02.getText();
-		winner[3] = jb10.getText();
-		winner[4] = jb11.getText();
-		winner[5] = jb12.getText();
-		winner[6] = jb20.getText();
-		winner[7] = jb21.getText();
-		winner[8] = jb22.getText();
+		System.out.println(jb02.getText());
+		
+		//if (jb10.getText() != null)
+		System.out.println(jb10.getText());
+		//winner[3] = jb10.getText();
+		
+		
+		if (jb11.getText() != null)
+		//winner[4] = jb11.getText();
+		if (jb12.getText() != null)
+		//winner[5] = jb12.getText();
+		if (jb20.getText() != null)
+		//winner[6] = jb20.getText();
+		if (jb21.getText() != null)
+		//winner[7] = jb21.getText();
+		if (jb22.getText() != null)
+		//winner[8] = jb22.getText();
+		
+		pOneWin =0;
+		for(int i =0; i < 3;i++)
+		{
+			if(winner[i] == Ostr)
+			{
+				++pOneWin;
+			}
+			
+			if(pOneWin == 3)
+				return 1;
+		}
+		
+		pTwoWin = 0;
+		for(int i=0; i < 3;i++)
+		{
+			if(winner[i] == Xstr)
+			{
+				++pTwoWin;
+			}
+			
+			if(pTwoWin == 3)
+				return 2;
+		}
+		
+		
+		return 0;
 	}
 	
 	public static void CheckUpdate() {
@@ -279,15 +338,15 @@ public class TictactoeJPanel extends JPanel implements ActionListener{
 		Font dresFont = new Font("Serif", Font.BOLD, 96);
 		
 		//jb00,jb01,jb02,jb10,jb11,jb12,jb20,jb21,jb22;
-		jb00 = new JButton();
-		jb01 = new JButton();
-		jb02 = new JButton();
-		jb10 = new JButton();
-		jb11 = new JButton();
-		jb12 = new JButton();
-		jb20 = new JButton();
-		jb21 = new JButton();
-		jb22 = new JButton();
+		jb00 = new JButton(" ");
+		jb01 = new JButton(" ");
+		jb02 = new JButton(" ");
+		jb10 = new JButton(" ");
+		jb11 = new JButton(" ");
+		jb12 = new JButton(" ");
+		jb20 = new JButton(" ");
+		jb21 = new JButton(" ");
+		jb22 = new JButton(" ");
 		
 		//jb00,jb01,jb02,jb10,jb11,jb12,jb20,jb21,jb22;
 		add(jb00);
