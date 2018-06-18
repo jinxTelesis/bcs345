@@ -339,6 +339,7 @@ public class GuiJPanel extends JPanel implements ActionListener{
 //							formJFrame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //							}
 //							});*/
+						
 //						
 					}
 					

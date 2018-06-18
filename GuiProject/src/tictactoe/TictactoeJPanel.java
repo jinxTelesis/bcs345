@@ -15,14 +15,16 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-public class TictactoeJPanel extends JPanel implements ActionListener, DocumentListener{
+
+public class TictactoeJPanel extends JPanel implements ActionListener{
 	
 	// got this from java documentation 
 	Border blackline, raisedetched, loweredetched,
 	raisedbevel, loweredbevel, empty;
 
 		// got this from java documentation
-
+	String playerState = "";
+	private boolean[] bClicked = { false,false,false,false,false,false,false,false,false};
 	private String Xstr = "   X  ";
 	private String Ostr = "   O  ";
 	private JTextArea jtABlank;
@@ -30,9 +32,24 @@ public class TictactoeJPanel extends JPanel implements ActionListener, DocumentL
 	private JButton jbplayer1, jbplayer2;
 	public static final String plaOneStr = "Player One";
 	public static final String plaTwoStr = "Player two";
+//	public static String b00 = "";
+//	public static String b01 = "";
+//	public static String b02 = "";
+//	public static String b10 = "";
+//	public static String b11 = "";
+//	public static String b12 = "";
+//	public static String b20 = "";
+//	public static String b21 = "";
+//	public static String b22 = "";
 
+	private enum Actions {
+		Button00, Button01, Button02,
+		Button10,Button11,Button12,
+		Button20,Button21,Button22;
+	}
 	
-	TictactoeJPanel(){
+	TictactoeJPanel(){ // constructor
+		CreateGui(); // moved button stuff to a method
 		blackline = BorderFactory.createLineBorder(Color.black);
 		raisedetched = BorderFactory.createEtchedBorder(EtchedBorder.RAISED);
 		loweredetched = BorderFactory.createEtchedBorder(EtchedBorder.LOWERED);
@@ -43,15 +60,15 @@ public class TictactoeJPanel extends JPanel implements ActionListener, DocumentL
 		Font dresFont = new Font("Serif", Font.BOLD, 96);
 		
 		//jb00,jb01,jb02,jb10,jb11,jb12,jb20,jb21,jb22;
-		JButton jb00 = new JButton(Xstr);
-		JButton jb01 = new JButton(Ostr);
-		JButton jb02 = new JButton(Xstr);
-		JButton jb10 = new JButton(Ostr);
-		JButton jb11 = new JButton(Xstr);
-		JButton jb12 = new JButton(Ostr);
-		JButton jb20 = new JButton(Xstr);
-		JButton jb21 = new JButton(Ostr);
-		JButton jb22 = new JButton(Xstr);
+		jb00 = new JButton();
+		jb01 = new JButton();
+		jb02 = new JButton();
+		jb10 = new JButton();
+		jb11 = new JButton();
+		jb12 = new JButton();
+		jb20 = new JButton();
+		jb21 = new JButton();
+		jb22 = new JButton();
 		
 		//jb00,jb01,jb02,jb10,jb11,jb12,jb20,jb21,jb22;
 		add(jb00);
@@ -64,46 +81,120 @@ public class TictactoeJPanel extends JPanel implements ActionListener, DocumentL
 		add(jb21);
 		add(jb22);
 		jb00.setFont(dresFont);
+		jb01.setFont(dresFont);
+		jb02.setFont(dresFont);
+		jb10.setFont(dresFont);
+		jb11.setFont(dresFont);
+		jb12.setFont(dresFont);
+		jb20.setFont(dresFont);
+		jb21.setFont(dresFont);
+		jb22.setFont(dresFont);
+		jb00.setActionCommand(Actions.Button00.name());
+		jb00.addActionListener(this);
+		
+		jb01.setActionCommand(Actions.Button01.name());
+		jb01.addActionListener(this);
+		
+		jb02.setActionCommand(Actions.Button02.name());
+		jb02.addActionListener(this);
+		
+		jb10.setActionCommand(Actions.Button10.name());
+		jb10.addActionListener(this);
+		
+		jb11.setActionCommand(Actions.Button11.name());
+		jb11.addActionListener(this);
+		
+		jb12.setActionCommand(Actions.Button12.name());
+		jb12.addActionListener(this);
+		
+		jb20.setActionCommand(Actions.Button20.name());
+		jb20.addActionListener(this);
+		
+		jb21.setActionCommand(Actions.Button21.name());
+		jb21.addActionListener(this);
+		
+		jb22.setActionCommand(Actions.Button22.name());
+		jb22.addActionListener(this);
 		
 		JTextArea jtABlank = new JTextArea();
 		
 		JButton jbplayer1 = new JButton(plaOneStr);
 		JButton jbplayer2 = new JButton(plaTwoStr);
-
 		
-		// add order // add order // add order
-
 		add(jbplayer1);
 		add(jtABlank);
 		add(jbplayer2);
 		
-
+		
 		jbplayer1.addActionListener(this);
 		jbplayer2.addActionListener(this);
-		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if(e.getActionCommand() == Actions.Button00.name())
+		{
+			System.out.println("but 00");
+			if(playerState == "PlayerOne")
+			{
+				jb00.setText(Ostr);
+			}
+			else
+			{
+				//b00 = Ostr;
+			}
+		}
+		
+		if(e.getActionCommand() == Actions.Button01.name())
+		{
+			System.out.println("but 01");
+		}
+		
+		if(e.getActionCommand() == Actions.Button02.name())
+		{
+			System.out.println("but 02");
+		}
+		
+		if(e.getActionCommand() == Actions.Button10.name())
+		{
+			System.out.println("but 10");
+		}
+		
+		if(e.getActionCommand() == Actions.Button11.name())
+		{
+			System.out.println("but 11");
+		}
+		
+		if(e.getActionCommand() == Actions.Button12.name())
+		{
+			System.out.println("but 12");
+		}
+		
+		if(e.getActionCommand() == Actions.Button20.name())
+		{
+			System.out.println("but 20");
+		}
+		
+		if(e.getActionCommand() == Actions.Button21.name())
+		{
+			System.out.println("but 21");
+		}
+		
+		if(e.getActionCommand() == Actions.Button22.name())
+		{
+			System.out.println("but 22");
+		}
+		
+
 		String testStr = new String();
 		String cmd = e.getActionCommand();
-		String playerState = "";
+		
 
 		switch(cmd) {
+		
 		case plaOneStr:
 			playerState = "PlayerOne";
+			
 			break;
 		case plaTwoStr:
 			playerState = "PlayerTwo";
@@ -112,47 +203,13 @@ public class TictactoeJPanel extends JPanel implements ActionListener, DocumentL
 		}
 		
 	}
-
-
-	@Override
-	public void changedUpdate(DocumentEvent arg0) {
-		// TODO Auto-generated method stub
+	
+	public static void CheckUpdate() {
 		
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-	@Override
-	public void insertUpdate(DocumentEvent arg0) {
-		// TODO Auto-generated method stub
+	public void CreateGui() {
 		
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-	@Override
-	public void removeUpdate(DocumentEvent arg0) {
-		// TODO Auto-generated method stub
 		
 	}
 
