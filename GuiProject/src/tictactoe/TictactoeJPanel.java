@@ -25,13 +25,14 @@ public class TictactoeJPanel extends JPanel implements ActionListener{
 		// got this from java documentation
 	String playerState = "";
 	private boolean[] bClicked = { false,false,false,false,false,false,false,false,false};
+	private String[] winner = new String[3]; // could put buttons in an array
 	private String Xstr = "   X  ";
 	private String Ostr = "   O  ";
 	private JTextArea jtABlank;
 	private JButton jb00,jb01,jb02,jb10,jb11,jb12,jb20,jb21,jb22;
 	private JButton jbplayer1, jbplayer2;
-	public static final String plaOneStr = "Player One";
-	public static final String plaTwoStr = "Player two";
+	public static final String plaOneStr = "Player One Start \n ( 0 )";
+	public static final String plaTwoStr = "Player Two Start \n ( X )";
 //	public static String b00 = "";
 //	public static String b01 = "";
 //	public static String b02 = "";
@@ -50,6 +51,224 @@ public class TictactoeJPanel extends JPanel implements ActionListener{
 	
 	TictactoeJPanel(){ // constructor
 		CreateGui(); // moved button stuff to a method
+		
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getActionCommand() == Actions.Button00.name())
+		{
+			//System.out.println("but 00");
+			if(playerState == "PlayerOne")
+			{
+				if(bClicked[0]!= true) {
+				jb00.setText(Ostr);
+				bClicked[0] = true;
+				playerState = "PlayerTwo";}
+			}
+			else
+			{	
+				if(bClicked[0]!= true) {
+				jb00.setText(Xstr);
+				bClicked[0] = true;
+				playerState = "PlayerOne";}
+			}
+		}
+		
+		if(e.getActionCommand() == Actions.Button01.name())
+		{
+			//System.out.println("but 01");
+			{
+				if(playerState == "PlayerOne")
+				{
+					if(bClicked[1]!= true) {
+					jb01.setText(Ostr);
+					bClicked[1] = true;
+					playerState = "PlayerTwo";}
+				}
+				else
+				{	
+					if(bClicked[1]!= true) {
+					jb01.setText(Xstr);
+					bClicked[1] = true;
+					playerState = "PlayerOne";}
+				}
+			}
+		}
+		
+		if(e.getActionCommand() == Actions.Button02.name())
+		{
+			//System.out.println("but 02");
+			{
+				if(playerState == "PlayerOne")
+				{
+					if(bClicked[2]!= true) {
+					jb02.setText(Ostr);
+					bClicked[2] = true;
+					playerState = "PlayerTwo";}
+				}
+				else
+				{	
+					if(bClicked[2]!= true) {
+					jb02.setText(Xstr);
+					bClicked[2] = true;
+					playerState = "PlayerOne";}
+				}
+			}
+		}
+		
+		if(e.getActionCommand() == Actions.Button10.name())
+		{
+			//System.out.println("but 10");
+			{
+				if(playerState == "PlayerOne")
+				{
+					if(bClicked[3]!= true) {
+					jb10.setText(Ostr);
+					bClicked[3] = true;
+					playerState = "PlayerTwo";}
+				}
+				else
+				{	
+					if(bClicked[3]!= true) {
+					jb10.setText(Xstr);
+					bClicked[3] = true;
+					playerState = "PlayerOne";}
+				}
+			}
+		}
+		
+		if(e.getActionCommand() == Actions.Button11.name())
+		{
+			if(playerState == "PlayerOne")
+			{
+				if(bClicked[4]!= true) {
+				jb11.setText(Ostr);
+				bClicked[4] = true;
+				playerState = "PlayerTwo";}
+			}
+			else
+			{	
+				if(bClicked[4]!= true) {
+				jb11.setText(Xstr);
+				bClicked[4] = true;
+				playerState = "PlayerOne";}
+			}
+		}
+		
+		if(e.getActionCommand() == Actions.Button12.name())
+		{
+			//System.out.println("but 12");
+			if(playerState == "PlayerOne")
+			{
+				if(bClicked[5]!= true) {
+				jb12.setText(Ostr);
+				bClicked[5] = true;
+				playerState = "PlayerTwo";}
+			}
+			else
+			{	
+				if(bClicked[5]!= true) {
+				jb12.setText(Xstr);
+				bClicked[5] = true;
+				playerState = "PlayerOne";}
+			}
+		}
+		
+		if(e.getActionCommand() == Actions.Button20.name())
+		{
+			//System.out.println("but 20");
+			if(playerState == "PlayerOne")
+			{
+				if(bClicked[6]!= true) {
+				jb20.setText(Ostr);
+				bClicked[6] = true;
+				playerState = "PlayerTwo";}
+			}
+			else
+			{	
+				if(bClicked[6]!= true) {
+				jb20.setText(Xstr);
+				bClicked[6] = true;
+				playerState = "PlayerOne";}
+			}
+		}
+		
+		if(e.getActionCommand() == Actions.Button21.name())
+		{
+			//System.out.println("but 21");
+			if(playerState == "PlayerOne")
+			{
+				if(bClicked[7]!= true) {
+				jb21.setText(Ostr);
+				bClicked[7] = true;
+				playerState = "PlayerTwo";}
+			}
+			else
+			{	
+				if(bClicked[7]!= true) {
+				jb21.setText(Xstr);
+				bClicked[7] = true;
+				playerState = "PlayerOne";}
+			}
+		}
+		
+		if(e.getActionCommand() == Actions.Button22.name())
+		{
+			//System.out.println("but 22");
+			if(playerState == "PlayerOne")
+			{
+				if(bClicked[8]!= true) {
+				jb22.setText(Ostr);
+				bClicked[8] = true;
+				playerState = "PlayerTwo";}
+			}
+			else
+			{	
+				if(bClicked[8]!= true) {
+				jb22.setText(Xstr);
+				bClicked[8] = true;
+				playerState = "PlayerOne";}
+			}
+		}
+		
+
+		String testStr = new String();
+		String cmd = e.getActionCommand();
+		
+
+		switch(cmd) {
+		
+		case plaOneStr:
+			if(playerState != "PlayerTwo")
+			playerState = "PlayerOne";
+			
+			break;
+		case plaTwoStr:
+			if(playerState !="PlayerOne")
+			playerState = "PlayerTwo";
+			break;
+		
+		}
+		
+	}
+	public void checkWinner(String[] winner) {
+		winner[0] = jb00.getText();
+		winner[1] = jb01.getText();
+		winner[2] = jb02.getText();
+		winner[3] = jb10.getText();
+		winner[4] = jb11.getText();
+		winner[5] = jb12.getText();
+		winner[6] = jb20.getText();
+		winner[7] = jb21.getText();
+		winner[8] = jb22.getText();
+	}
+	
+	public static void CheckUpdate() {
+		
+	}
+
+	public void CreateGui() {
 		blackline = BorderFactory.createLineBorder(Color.black);
 		raisedetched = BorderFactory.createEtchedBorder(EtchedBorder.RAISED);
 		loweredetched = BorderFactory.createEtchedBorder(EtchedBorder.LOWERED);
@@ -128,88 +347,6 @@ public class TictactoeJPanel extends JPanel implements ActionListener{
 		
 		jbplayer1.addActionListener(this);
 		jbplayer2.addActionListener(this);
-	}
-	
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		if(e.getActionCommand() == Actions.Button00.name())
-		{
-			System.out.println("but 00");
-			if(playerState == "PlayerOne")
-			{
-				jb00.setText(Ostr);
-			}
-			else
-			{
-				//b00 = Ostr;
-			}
-		}
-		
-		if(e.getActionCommand() == Actions.Button01.name())
-		{
-			System.out.println("but 01");
-		}
-		
-		if(e.getActionCommand() == Actions.Button02.name())
-		{
-			System.out.println("but 02");
-		}
-		
-		if(e.getActionCommand() == Actions.Button10.name())
-		{
-			System.out.println("but 10");
-		}
-		
-		if(e.getActionCommand() == Actions.Button11.name())
-		{
-			System.out.println("but 11");
-		}
-		
-		if(e.getActionCommand() == Actions.Button12.name())
-		{
-			System.out.println("but 12");
-		}
-		
-		if(e.getActionCommand() == Actions.Button20.name())
-		{
-			System.out.println("but 20");
-		}
-		
-		if(e.getActionCommand() == Actions.Button21.name())
-		{
-			System.out.println("but 21");
-		}
-		
-		if(e.getActionCommand() == Actions.Button22.name())
-		{
-			System.out.println("but 22");
-		}
-		
-
-		String testStr = new String();
-		String cmd = e.getActionCommand();
-		
-
-		switch(cmd) {
-		
-		case plaOneStr:
-			playerState = "PlayerOne";
-			
-			break;
-		case plaTwoStr:
-			playerState = "PlayerTwo";
-			break;
-		
-		}
-		
-	}
-	
-	public static void CheckUpdate() {
-		
-	}
-
-	public void CreateGui() {
-		
 		
 	}
 
